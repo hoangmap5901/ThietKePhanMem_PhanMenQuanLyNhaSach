@@ -71,6 +71,7 @@ namespace MyShop
 
                     row++;
                 } while (idCell?.InnerText.Length > 0);
+                db.SaveChanges();
 
                 // Sách
                 var sachSheet = sheets.FirstOrDefault(s => s.Name == "Sach")!;
@@ -114,6 +115,7 @@ namespace MyShop
 
                     row++;
                 } while (idCell?.InnerText.Length > 0);
+                db.SaveChanges();
 
                 // Khách hàng
                 var khachHangSheet = sheets.FirstOrDefault(s => s.Name == "KhachHang")!;
@@ -158,6 +160,7 @@ namespace MyShop
 
                     row++;
                 } while (idCell?.InnerText.Length > 0);
+                db.SaveChanges();
 
                 // Trạng thái đơn hàng
                 var trangThaiDonHangSheet = sheets.FirstOrDefault(s => s.Name == "TrangThaiDonHang")!;
@@ -196,6 +199,7 @@ namespace MyShop
 
                     row++;
                 } while (idCell?.InnerText.Length > 0);
+                db.SaveChanges();
 
                 // Tài khoản
                 var taiKhoanSheet = sheets.FirstOrDefault(s => s.Name == "TaiKhoan")!;
@@ -233,8 +237,8 @@ namespace MyShop
 
                     row++;
                 } while (idCell?.InnerText.Length > 0);
-
                 db.SaveChanges();
+
                 MessageBox.Show("Imported data from Excel into SQL Server successfully.");
             }
         }
