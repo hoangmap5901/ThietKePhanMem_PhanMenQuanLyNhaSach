@@ -13,17 +13,17 @@
             <TextBlock Text="{Binding Path=UserNameLoginWelcome, ElementName=Dashboard_Window}" Foreground="Green" FontWeight="Bold" FontSize="25"/>
         </StackPanel>
         <Button Margin="5" x:Name="importExcelButton" Width="144" Height="98" Content="IMPORT TỪ EXCEL"
-                Click="ImportExcelButton_Click" Canvas.Left="64" Canvas.Top="232"/>
+                Click="ImportExcelButton_Click" Canvas.Left="64" Canvas.Top="232" Background="Red"/>
         <Button x:Name="quanLiTheLoaiSachButton" Width="144" Height="98" Content="QUẢN LÍ THỂ LOẠI SÁCH"
-            Click="QuanLiTheLoaiSachButton_Click" Canvas.Left="328" Canvas.Top="237"/>
+            Click="QuanLiTheLoaiSachButton_Click" Canvas.Left="328" Canvas.Top="237" Background="Orange"/>
         <Button x:Name="quanLiSachButton" Width="145" Height="98" Content="QUẢN LÍ SÁCH"
-            Click="QuanLiSachButton_Click" Canvas.Left="601" Canvas.Top="237"/>
+            Click="QuanLiSachButton_Click" Canvas.Left="601" Canvas.Top="237" Background="Yellow"/>
         <Button x:Name="quanLiDonHangButton" Width="145" Height="98" Content="QUẢN LÍ ĐƠN HÀNG"
-            Click="QuanLiDonHangButton_Click" Canvas.Left="69" Canvas.Top="386"/>
+            Click="QuanLiDonHangButton_Click" Canvas.Left="69" Canvas.Top="386" Background="LightGreen"/>
         <Button x:Name="quanLiKhachHangButton" Width="145" Height="98" Content="QUẢN LÍ KHÁCH HÀNG"
-            Click="QuanLiKhachHangButton_Click" Canvas.Left="327" Canvas.Top="386"/>
+            Click="QuanLiKhachHangButton_Click" Canvas.Left="327" Canvas.Top="386" Background="LightBlue"/>
         <Button x:Name="baoCaoButton" Width="144" Height="98" Content="BÁO CÁO"
-            Click="BaoCaoButton_Click" Canvas.Left="601" Canvas.Top="386"/>
+            Click="BaoCaoButton_Click" Canvas.Left="601" Canvas.Top="386" Background="Violet"/>
     </Canvas>
 </Window>
  
