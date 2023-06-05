@@ -59,3 +59,5 @@ C:\Users\ASUS\Desktop\21810012_MyShop\MyShop\obj\Debug\net5.0-windows\MyShop.dll
 C:\Users\ASUS\Desktop\21810012_MyShop\MyShop\obj\Debug\net5.0-windows\ref\MyShop.dll
 C:\Users\ASUS\Desktop\21810012_MyShop\MyShop\obj\Debug\net5.0-windows\MyShop.pdb
 C:\Users\ASUS\Desktop\21810012_MyShop\MyShop\obj\Debug\net5.0-windows\MyShop.genruntimeconfig.cache
+C:\Users\ASUS\Desktop\21810012_MyShop\MyShop\obj\Debug\net5.0-windows\DashboardWindow.g.cs
+C:\Users\ASUS\Desktop\21810012_MyShop\MyShop\obj\Debug\net5.0-windows\DashboardWindow.baml

@@ -5,8 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MyShop"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Dang Nhap Window" Height="350" Width="400" Loaded="Window_Loaded">
     <Canvas>
-        <Button Name="importExcelButton" Width="80" Height="35" Click="ImportExcelButton_Click" Content="Import Excel" Canvas.Left="123" Canvas.Top="119"/>
+        <TextBlock Text="Đăng Nhập" FontWeight="Bold" FontSize="25" Canvas.Left="133" Canvas.Top="44"/>
+        <TextBlock Text="Username" Canvas.Left="35" Canvas.Top="123"/>
+        <TextBox x:Name="usernameTextBox" Padding="5,0,0,0" Canvas.Left="153" Canvas.Top="123" Width="214"/>
+        <TextBlock Text="Password" Canvas.Left="35" Canvas.Top="176"/>
+        <PasswordBox x:Name="dangNhapPasswordPasswordBox" Padding="5,0,0,0" Canvas.Left="153" Canvas.Top="184" Width="214"/>
+        <Button Name="dangNhapButton" Width="80" Height="35" Click="DangNhapButton_Click"  Content="Đăng nhập" Canvas.Left="143" Canvas.Top="253"/>
     </Canvas>
 </Window>
