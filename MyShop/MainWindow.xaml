@@ -21,7 +21,7 @@
         <Button x:Name="quanLiDonHangButton" Width="145" Height="98" Content="QUẢN LÍ ĐƠN HÀNG"
             Click="QuanLiDonHangButton_Click" Canvas.Left="69" Canvas.Top="386" Background="LightGreen"/>
         <Button x:Name="quanLiKhachHangButton" Width="145" Height="98" Content="QUẢN LÍ KHÁCH HÀNG"
-            Click="QuanLiKhachHangButton_Click" Canvas.Left="327" Canvas.Top="386" Background="LightBlue"/>
+            Click="QuanLiKhachHangButton_Click" Canvas.Left="327" Canvas.Top="386" Background="DodgerBlue"/>
         <Button x:Name="baoCaoButton" Width="144" Height="98" Content="BÁO CÁO"
             Click="BaoCaoButton_Click" Canvas.Left="601" Canvas.Top="386" Background="Violet"/>
     </Canvas>
