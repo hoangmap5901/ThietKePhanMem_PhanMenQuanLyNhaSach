@@ -24,6 +24,15 @@ namespace MyShop
     /// </summary>
     public partial class MainWindow : Window
     {
+        public static readonly DependencyProperty UserNameLoginWelcomeProperty =
+  DependencyProperty.Register("UserNameLoginWelcome", typeof(string), typeof(Window), new PropertyMetadata(null));
+
+        public string UserNameLoginWelcome
+        {
+            get { return (string)GetValue(UserNameLoginWelcomeProperty); }
+            set { SetValue(UserNameLoginWelcomeProperty, value); }
+        }
+
         public MainWindow()
         {
             InitializeComponent();
@@ -31,55 +40,13 @@ namespace MyShop
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            var curDir = AppDomain.CurrentDomain.BaseDirectory;
-            var importExcelDir = Path.GetFullPath(Path.Combine(curDir, @"..\..\..\..\"));
-            string importExcelFile = $"{importExcelDir}MyShopDataImportDataBase.xlsx";
-
-            var document = SpreadsheetDocument.Open(importExcelFile, false);
-            var workbookPart = document.WorkbookPart!;
-            var sheets = workbookPart.Workbook.Descendants<Sheet>()!;
-
-            var db = new MyShopDBContext();
-
-            var taiKhoanSheet = sheets.FirstOrDefault(s => s.Name == "TaiKhoan")!;
-            var worksheetPart = (WorksheetPart)workbookPart.GetPartById(taiKhoanSheet.Id!)!;
-            var cells = worksheetPart.Worksheet.Descendants<Cell>()!;
-            int row = 3;
-            Cell idCell;
-
-            do
+            this.Hide();
+            var screen = new DangNhapWindow();
+            if (screen.ShowDialog() == true)
             {
-                idCell = cells.FirstOrDefault(
-                    c => c?.CellReference == $"B{row}");
-
-                if (idCell?.InnerText.Length > 0)
-                {
-                    Cell tenDangNhapCell = cells.FirstOrDefault(c => c?.CellReference == $"C{row}");
-                    string tenDangNhapId = tenDangNhapCell!.InnerText;
-                    Cell matKhauCell = cells.FirstOrDefault(c => c?.CellReference == $"D{row}");
-                    string matKhauId = matKhauCell!.InnerText;
-                    Cell vaiTroCell = cells.FirstOrDefault(c => c?.CellReference == $"E{row}");
-                    string vaiTroId = vaiTroCell!.InnerText;
-
-                    var stringTable = workbookPart.GetPartsOfType<SharedStringTablePart>().FirstOrDefault()!;
-                    string tenDangNhap = stringTable.SharedStringTable.ElementAt(int.Parse(tenDangNhapId)).InnerText;
-                    string matKhau = stringTable.SharedStringTable.ElementAt(int.Parse(matKhauId)).InnerText;
-                    string vaiTro = stringTable.SharedStringTable.ElementAt(int.Parse(vaiTroId)).InnerText;
-
-                    var taiKhoan = new TaiKhoan()
-                    {
-                        TenDangNhap = tenDangNhap,
-                        MatKhau = matKhau,
-                        VaiTro = vaiTro
-                    };
-                    db.TaiKhoans.Add(taiKhoan);
-                }
-
-                row++;
-            } while (idCell?.InnerText.Length > 0);
-            db.SaveChanges();
-
-            MessageBox.Show("Imported TaiKhoan data from Excel into SQL Server successfully.");
+                UserNameLoginWelcome = screen._usernameLoginWelcome;
+                this.Show();
+            }
         }
 
         //private void ImportExcelButton_Click(object sender, RoutedEventArgs e)
@@ -296,34 +263,34 @@ namespace MyShop
         //    }
         //}
 
-        private void DangNhapButton_Click(object sender, RoutedEventArgs e)
+        private void ImportExcelButton_Click(object sender, RoutedEventArgs e)
         {
-            string usernameInput = usernameTextBox.Text;
-            string passwordInput = dangNhapPasswordPasswordBox.Password.ToString();
 
-            var db = new MyShopDBContext();
+        }
 
-            var danhSachTenDangNhap = db.TaiKhoans.Select(u => u.TenDangNhap).ToList();
-            var danhSachMatKhau = db.TaiKhoans.Select(u => u.MatKhau).ToList();
+        private void QuanLiLoaiSachButton_Click(object sender, RoutedEventArgs e)
+        {
 
-            if (danhSachTenDangNhap.Contains(usernameInput) == false)
-            {
-                MessageBox.Show($"Không tìm thấy username {usernameInput} trong cơ sở dữ liệu.");
-            }
-            else
-            {
-                int chiMucTenDangNhap = danhSachTenDangNhap.IndexOf(usernameInput);
-                if (passwordInput == danhSachMatKhau[chiMucTenDangNhap])
-                {
-                    MessageBox.Show("Đăng nhập thành công.");
-                    var screen = new DashboardWindow(usernameInput);
-                    screen.Show();
-                }
-                else
-                {
-                    MessageBox.Show("Sai mật khẩu.");
-                }
-            }
+        }
+
+        private void QuanLiSachButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void QuanLiDonHangButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void QuanLiKhachHangButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BaoCaoButton_Click(object sender, RoutedEventArgs e)
+        {
+
         }
 
     }

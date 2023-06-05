@@ -1,0 +1,17 @@
+﻿<Window x:Class="MyShop.DangNhapWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MyShop"
+        mc:Ignorable="d"
+        Title="Dang Nhap Window" Height="350" Width="400" Loaded="Window_Loaded">
+    <Canvas>
+        <TextBlock Text="Đăng Nhập" FontWeight="Bold" FontSize="25" Canvas.Left="133" Canvas.Top="44"/>
+        <TextBlock Text="Username" Canvas.Left="35" Canvas.Top="123"/>
+        <TextBox x:Name="usernameTextBox" Padding="5,0,0,0" Canvas.Left="153" Canvas.Top="123" Width="214"/>
+        <TextBlock Text="Password" Canvas.Left="35" Canvas.Top="176"/>
+        <PasswordBox x:Name="dangNhapPasswordPasswordBox" Padding="5,0,0,0" Canvas.Left="153" Canvas.Top="184" Width="214"/>
+        <Button Name="dangNhapButton" Width="80" Height="35" Click="DangNhapButton_Click"  Content="Đăng nhập" Canvas.Left="160" Canvas.Top="254"/>
+    </Canvas>
+</Window>

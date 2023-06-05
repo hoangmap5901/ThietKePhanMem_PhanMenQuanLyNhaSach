@@ -4,14 +4,25 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MyShop"
+        x:Name="Dashboard_Window"
         mc:Ignorable="d"
-        Title="Dang Nhap Window" Height="350" Width="400" Loaded="Window_Loaded">
+        Title="Main Window (Dashboard Window)" Height="550" Width="800" Loaded="Window_Loaded">
     <Canvas>
-        <TextBlock Text="Đăng Nhập" FontWeight="Bold" FontSize="25" Canvas.Left="133" Canvas.Top="44"/>
-        <TextBlock Text="Username" Canvas.Left="35" Canvas.Top="123"/>
-        <TextBox x:Name="usernameTextBox" Padding="5,0,0,0" Canvas.Left="153" Canvas.Top="123" Width="214"/>
-        <TextBlock Text="Password" Canvas.Left="35" Canvas.Top="176"/>
-        <PasswordBox x:Name="dangNhapPasswordPasswordBox" Padding="5,0,0,0" Canvas.Left="153" Canvas.Top="184" Width="214"/>
-        <Button Name="dangNhapButton" Width="80" Height="35" Click="DangNhapButton_Click"  Content="Đăng nhập" Canvas.Left="143" Canvas.Top="253"/>
+        <StackPanel Orientation="Horizontal" Canvas.Left="315" Canvas.Top="37">
+            <TextBlock Text="Xin Chào " FontWeight="Bold" FontSize="25"/>
+            <TextBlock Text="{Binding Path=UserNameLoginWelcome, ElementName=Dashboard_Window}" Foreground="Green" FontWeight="Bold" FontSize="25"/>
+        </StackPanel>
+        <Button Margin="5" x:Name="importExcelButton" Width="144" Height="98" Content="IMPORT TỪ EXCEL"
+                Click="ImportExcelButton_Click" Canvas.Left="64" Canvas.Top="232"/>
+        <Button x:Name="quanLiLoaiSachButton" Width="144" Height="98" Content="QUẢN LÍ LOẠI SÁCH"
+            Click="QuanLiLoaiSachButton_Click" Canvas.Left="328" Canvas.Top="237"/>
+        <Button x:Name="quanLiSachButton" Width="145" Height="98" Content="QUẢN LÍ SÁCH"
+            Click="QuanLiSachButton_Click" Canvas.Left="601" Canvas.Top="237"/>
+        <Button x:Name="quanLiDonHangButton" Width="145" Height="98" Content="QUẢN LÍ ĐƠN HÀNG"
+            Click="QuanLiDonHangButton_Click" Canvas.Left="69" Canvas.Top="386"/>
+        <Button x:Name="quanLiKhachHangButton" Width="145" Height="98" Content="QUẢN LÍ KHÁCH HÀNG"
+            Click="QuanLiKhachHangButton_Click" Canvas.Left="327" Canvas.Top="386"/>
+        <Button x:Name="baoCaoButton" Width="144" Height="98" Content="BÁO CÁO"
+            Click="BaoCaoButton_Click" Canvas.Left="601" Canvas.Top="386"/>
     </Canvas>
 </Window>
