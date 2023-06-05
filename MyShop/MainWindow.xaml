@@ -14,8 +14,8 @@
         </StackPanel>
         <Button Margin="5" x:Name="importExcelButton" Width="144" Height="98" Content="IMPORT TỪ EXCEL"
                 Click="ImportExcelButton_Click" Canvas.Left="64" Canvas.Top="232"/>
-        <Button x:Name="quanLiLoaiSachButton" Width="144" Height="98" Content="QUẢN LÍ LOẠI SÁCH"
-            Click="QuanLiLoaiSachButton_Click" Canvas.Left="328" Canvas.Top="237"/>
+        <Button x:Name="quanLiTheLoaiSachButton" Width="144" Height="98" Content="QUẢN LÍ THỂ LOẠI SÁCH"
+            Click="QuanLiTheLoaiSachButton_Click" Canvas.Left="328" Canvas.Top="237"/>
         <Button x:Name="quanLiSachButton" Width="145" Height="98" Content="QUẢN LÍ SÁCH"
             Click="QuanLiSachButton_Click" Canvas.Left="601" Canvas.Top="237"/>
         <Button x:Name="quanLiDonHangButton" Width="145" Height="98" Content="QUẢN LÍ ĐƠN HÀNG"
@@ -26,3 +26,4 @@
             Click="BaoCaoButton_Click" Canvas.Left="601" Canvas.Top="386"/>
     </Canvas>
 </Window>
+ 
