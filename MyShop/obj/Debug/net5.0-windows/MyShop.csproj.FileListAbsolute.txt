@@ -61,3 +61,10 @@ C:\Users\ASUS\Desktop\21810012_MyShop\MyShop\obj\Debug\net5.0-windows\MyShop.pdb
 C:\Users\ASUS\Desktop\21810012_MyShop\MyShop\obj\Debug\net5.0-windows\MyShop.genruntimeconfig.cache
 C:\Users\ASUS\Desktop\21810012_MyShop\MyShop\obj\Debug\net5.0-windows\DangNhapWindow.g.cs
 C:\Users\ASUS\Desktop\21810012_MyShop\MyShop\obj\Debug\net5.0-windows\DangNhapWindow.baml
+C:\Users\ASUS\Desktop\21810012_MyShop\MyShop\obj\Debug\net5.0-windows\TheLoaiSachWindow.g.cs
+C:\Users\ASUS\Desktop\21810012_MyShop\MyShop\obj\Debug\net5.0-windows\TheLoaiSachWindow.baml
+C:\Users\ASUS\Desktop\21810012_MyShop\MyShop\obj\Debug\net5.0-windows\ThemTheLoaiWindow.g.cs
+C:\Users\ASUS\Desktop\21810012_MyShop\MyShop\obj\Debug\net5.0-windows\ThemTheLoaiWindow.baml
+C:\Users\ASUS\Desktop\21810012_MyShop\MyShop\obj\Debug\net5.0-windows\MyShop.csproj.Fody.CopyLocal.cache
+C:\Users\ASUS\Desktop\21810012_MyShop\MyShop\obj\Debug\net5.0-windows\CapNhatTheLoaiWindow.g.cs
+C:\Users\ASUS\Desktop\21810012_MyShop\MyShop\obj\Debug\net5.0-windows\CapNhatTheLoaiWindow.baml

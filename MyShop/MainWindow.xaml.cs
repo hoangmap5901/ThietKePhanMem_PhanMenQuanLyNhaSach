@@ -221,13 +221,14 @@ namespace MyShop
                 } while (idCell?.InnerText.Length > 0);
                 db.SaveChanges();
 
-                MessageBox.Show("Imported TheLoai, Sach, KhachHang, TrangThaiDonHang data from Excel into SQL Server successfully.");
+                MessageBox.Show("Successfully imported TheLoai, Sach, KhachHang, TrangThaiDonHang data from Excel into SQL Server.");
             }
         }
 
         private void QuanLiTheLoaiSachButton_Click(object sender, RoutedEventArgs e)
         {
-
+            var theLoaiScreen = new TheLoaiSachWindow();
+            theLoaiScreen.Show();
         }
 
         private void QuanLiSachButton_Click(object sender, RoutedEventArgs e)

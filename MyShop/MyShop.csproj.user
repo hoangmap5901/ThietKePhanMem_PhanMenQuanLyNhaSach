@@ -7,18 +7,36 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="CapNhatTheLoaiWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="DangNhapWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="MainWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="TheLoaiSachWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="ThemTheLoaiWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="CapNhatTheLoaiWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="DangNhapWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="TheLoaiSachWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ThemTheLoaiWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

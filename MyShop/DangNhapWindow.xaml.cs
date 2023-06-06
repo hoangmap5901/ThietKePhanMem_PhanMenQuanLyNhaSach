@@ -78,7 +78,7 @@ namespace MyShop
             } while (idCell?.InnerText.Length > 0);
             db.SaveChanges();
 
-            MessageBox.Show("Imported TaiKhoan data from Excel into SQL Server successfully.");
+            MessageBox.Show("Successfully imported TaiKhoan data from Excel into SQL Server.");
         }
 
         private void DangNhapButton_Click(object sender, RoutedEventArgs e)
