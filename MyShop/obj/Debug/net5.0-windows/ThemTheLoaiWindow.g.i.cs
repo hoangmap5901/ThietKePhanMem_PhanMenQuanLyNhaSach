@@ -77,7 +77,7 @@ namespace MyShop {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/MyShop;V1.0.0.0;component/themtheloaiwindow.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/MyShop;component/themtheloaiwindow.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\ThemTheLoaiWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

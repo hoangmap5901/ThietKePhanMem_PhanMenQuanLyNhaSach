@@ -67,15 +67,15 @@ namespace MyShop
             var db = new MyShopDBContext();
             var khachHangs = db.KhachHangs.ToList();
 
-            khachHangs.Where(khachHang => khachHang.Ten.Contains(Keyword));
-            _totalItems = khachHangs.Count;
+            var khachHangsKeyword = khachHangs.Where(khachHang => khachHang.Ten.Contains(Keyword));
+            _totalItems = khachHangsKeyword.Count();
             TotalItems = _totalItems;
 
-            khachHangs.Skip((_currentPage - 1) * RowsPerPage).Take(RowsPerPage);
-            _numberOfItemsCurrentPage = khachHangs.Count;
+            var khachHangsRowsPerPage = khachHangsKeyword.Skip((_currentPage - 1) * RowsPerPage).Take(RowsPerPage);
+            _numberOfItemsCurrentPage = khachHangsRowsPerPage.Count();
             NumberOfItemsCurrentPage = _numberOfItemsCurrentPage;
 
-            khachHangListView.ItemsSource = khachHangs;
+            khachHangListView.ItemsSource = khachHangsRowsPerPage;
         }
 
         void UpdatePagingInfo()
@@ -98,24 +98,21 @@ namespace MyShop
             }
         }
 
-        private void AddKhachHangButton_Click(object sender, RoutedEventArgs e)
+        private void ThemKhachHangButton_Click(object sender, RoutedEventArgs e)
         {
             int pageIndex = pagingComboBox.SelectedIndex;
             var screen = new ThemKhachHangWindow();
+            int numberOfItemsCurrentPagePrev = _numberOfItemsCurrentPage;
 
             if (screen.ShowDialog() == true)
             {
-                if (_numberOfItemsCurrentPage == RowsPerPage)
+                UpdateDataSource();
+                //UpdateDataSource();
+                UpdatePagingInfo();
+                if (numberOfItemsCurrentPagePrev == RowsPerPage)
                 {
                     pagingComboBox.SelectedIndex = pageIndex + 1;
                 }
-                else
-                {
-                    UpdateDataSource();
-                }
-
-                //UpdateDataSource();
-                UpdatePagingInfo();
             }
         }
 
@@ -129,45 +126,43 @@ namespace MyShop
             db.KhachHangs.Remove(khachHangXoa);
             db.SaveChanges();
 
-            MessageBox.Show($"Successfully deleted KhachHang record in SQL Server with TheLoaiID = {khachHangXoa.KhachHangId}.");
+            MessageBox.Show($"Successfully deleted KhachHang record in SQL Server with KhachHangID = {khachHangXoa.KhachHangId}.");
         }
 
-        private void DeleteKhachHangButton_Click(object sender, RoutedEventArgs e)
+        private void XoaKhachHangButton_Click(object sender, RoutedEventArgs e)
         {
             int pageIndex = pagingComboBox.SelectedIndex;
+            int numberOfItemsCurrentPagePrev = _numberOfItemsCurrentPage;
 
             DeleteSelectedKhachHang();
 
             // && (_currentPage == pageIndex)
-            if ((_numberOfItemsCurrentPage == 1) && (_currentPage > 1))
+            UpdateDataSource();
+
+            UpdatePagingInfo();
+            pagingComboBox.SelectedIndex = pageIndex;
+            if ((numberOfItemsCurrentPagePrev == 1) && (_currentPage > 1))
             {
                 pagingComboBox.SelectedIndex = pageIndex - 1;
             }
-            else
-            {
-                UpdateDataSource();
-            }
-
-            UpdatePagingInfo();
         }
 
         private void XoaMenu_Click(object sender, RoutedEventArgs e)
         {
             int pageIndex = pagingComboBox.SelectedIndex;
+            int numberOfItemsCurrentPagePrev = _numberOfItemsCurrentPage;
 
             DeleteSelectedKhachHang();
 
             // && (_currentPage == pageIndex)
-            if ((_numberOfItemsCurrentPage == 1) && (_currentPage > 1))
+            UpdateDataSource();
+
+            UpdatePagingInfo();
+            pagingComboBox.SelectedIndex = pageIndex;
+            if ((numberOfItemsCurrentPagePrev == 1) && (_currentPage > 1))
             {
                 pagingComboBox.SelectedIndex = pageIndex - 1;
             }
-            else
-            {
-                UpdateDataSource();
-            }
-
-            UpdatePagingInfo();
         }
 
         private CapNhatKhachHangWindow UpdateSelectedKhachHang()
@@ -179,21 +174,27 @@ namespace MyShop
             return screen;
         }
 
-        private void UpdateKhachHangButton_Click(object sender, RoutedEventArgs e)
+        private void CapNhatKhachHangButton_Click(object sender, RoutedEventArgs e)
         {
+            int pageIndex = pagingComboBox.SelectedIndex;
+
             if (UpdateSelectedKhachHang().ShowDialog() == true)
             {
                 UpdateDataSource();
                 UpdatePagingInfo();
+                pagingComboBox.SelectedIndex = pageIndex;
             }
         }
 
         private void CapNhatMenu_Click(object sender, RoutedEventArgs e)
         {
+            int pageIndex = pagingComboBox.SelectedIndex;
+
             if (UpdateSelectedKhachHang().ShowDialog() == true)
             {
                 UpdateDataSource();
                 UpdatePagingInfo();
+                pagingComboBox.SelectedIndex = pageIndex;
             }
         }
 
@@ -202,7 +203,7 @@ namespace MyShop
             KhachHang khachHangChon = khachHangListView.SelectedItem as KhachHang;
 
             string khachHangInfo = @$"
-                                     Thông Tin Khách Hàng
+                            Thông Tin Khách Hàng
             Khách hàng ID: {khachHangChon.KhachHangId}
             Tên: {khachHangChon.Ten}
             Số điện thoại: {khachHangChon.SoDienThoai}
@@ -232,16 +233,16 @@ namespace MyShop
 
         private void UpdateRowsPerPageButton_Click(object sender, RoutedEventArgs e)
         {
-            //UpdateDataSource();
-            pagingComboBox.SelectedIndex = 0;
+            UpdateDataSource();
             UpdatePagingInfo();
+            pagingComboBox.SelectedIndex = 0;
         }
 
         private void SearchButton_Click(object sender, RoutedEventArgs e)
         {
-            //UpdateDataSource();
-            pagingComboBox.SelectedIndex = 0;
+            UpdateDataSource();
             UpdatePagingInfo();
+            pagingComboBox.SelectedIndex = 0;
             //_currentPage = 1;
         }
     }

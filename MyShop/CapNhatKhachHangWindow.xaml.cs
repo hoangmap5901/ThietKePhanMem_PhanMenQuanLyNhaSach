@@ -85,7 +85,7 @@ namespace MyShop
                 khachHangCapNhat.ImagePath = CapNhatKhachHang.ImagePath;
                 db.SaveChanges();
 
-                MessageBox.Show($"Successfully updated KhachHang record in SQL Server with TheLoaiID = {khachHangCapNhat.KhachHangId}.");
+                MessageBox.Show($"Successfully updated KhachHang record in SQL Server with KhachHangID = {khachHangCapNhat.KhachHangId}.");
             }
           
             DialogResult = true;

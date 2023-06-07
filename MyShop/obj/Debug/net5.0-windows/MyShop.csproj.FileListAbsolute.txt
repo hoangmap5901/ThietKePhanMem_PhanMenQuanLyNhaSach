@@ -68,3 +68,15 @@ C:\Users\ASUS\Desktop\21810012_MyShop\MyShop\obj\Debug\net5.0-windows\ThemTheLoa
 C:\Users\ASUS\Desktop\21810012_MyShop\MyShop\obj\Debug\net5.0-windows\MyShop.csproj.Fody.CopyLocal.cache
 C:\Users\ASUS\Desktop\21810012_MyShop\MyShop\obj\Debug\net5.0-windows\CapNhatTheLoaiWindow.g.cs
 C:\Users\ASUS\Desktop\21810012_MyShop\MyShop\obj\Debug\net5.0-windows\CapNhatTheLoaiWindow.baml
+C:\Users\ASUS\Desktop\21810012_MyShop\MyShop\obj\Debug\net5.0-windows\CapNhatKhachHangWindow.g.cs
+C:\Users\ASUS\Desktop\21810012_MyShop\MyShop\obj\Debug\net5.0-windows\KhachHangWindow.g.cs
+C:\Users\ASUS\Desktop\21810012_MyShop\MyShop\obj\Debug\net5.0-windows\ThemKhachHangWindow.g.cs
+C:\Users\ASUS\Desktop\21810012_MyShop\MyShop\obj\Debug\net5.0-windows\GeneratedInternalTypeHelper.g.cs
+C:\Users\ASUS\Desktop\21810012_MyShop\MyShop\bin\Debug\net5.0-windows\Images\KhachHang\avatar_01.jpg
+C:\Users\ASUS\Desktop\21810012_MyShop\MyShop\bin\Debug\net5.0-windows\Images\KhachHang\avatar_02.jpg
+C:\Users\ASUS\Desktop\21810012_MyShop\MyShop\bin\Debug\net5.0-windows\Images\KhachHang\avatar_03.jpg
+C:\Users\ASUS\Desktop\21810012_MyShop\MyShop\bin\Debug\net5.0-windows\Images\KhachHang\avatar_04.jpg
+C:\Users\ASUS\Desktop\21810012_MyShop\MyShop\bin\Debug\net5.0-windows\Images\KhachHang\avatar_05.jpg
+C:\Users\ASUS\Desktop\21810012_MyShop\MyShop\obj\Debug\net5.0-windows\CapNhatKhachHangWindow.baml
+C:\Users\ASUS\Desktop\21810012_MyShop\MyShop\obj\Debug\net5.0-windows\KhachHangWindow.baml
+C:\Users\ASUS\Desktop\21810012_MyShop\MyShop\obj\Debug\net5.0-windows\ThemKhachHangWindow.baml

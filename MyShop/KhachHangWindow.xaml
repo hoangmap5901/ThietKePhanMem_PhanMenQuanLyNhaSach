@@ -17,7 +17,7 @@
             <Button Margin="5" x:Name="xoaKhachHangButton" Content="Xóa" Width="80" Height="35" 
                 Click="XoaKhachHangButton_Click" Canvas.Left="144" Canvas.Top="18"/>
             <Button Margin="5" x:Name="capNhatKhachHangButton" Width="80" Height="35" Content="Cập nhật"
-                Click="capNhatKhachHangButton_Click" Canvas.Left="245" Canvas.Top="18"/>
+                Click="CapNhatKhachHangButton_Click" Canvas.Left="245" Canvas.Top="18"/>
         </StackPanel>
 
         <ListView ScrollViewer.HorizontalScrollBarVisibility="Disabled" Padding="10, 10, 0, 0" Name="khachHangListView" Canvas.Left="10" Canvas.Top="55" Height="251" Width="436">

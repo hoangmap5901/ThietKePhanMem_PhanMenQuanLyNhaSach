@@ -74,7 +74,7 @@ namespace MyShop
             db.KhachHangs.Add(khachHangThem);
             db.SaveChanges();
 
-            MessageBox.Show($"Successfully added new KhachHang record into SQL Server with TheLoaiID = {khachHangThem.KhachHangId}.");
+            MessageBox.Show($"Successfully added new KhachHang record into SQL Server with KhachHangID = {khachHangThem.KhachHangId}.");
 
             DialogResult = true;
         }
