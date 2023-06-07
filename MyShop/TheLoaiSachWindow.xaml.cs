@@ -68,8 +68,7 @@ namespace MyShop
         {
  
             TheLoai theLoaiChon = theLoaiDataGrid.SelectedItem as TheLoai;
-
-
+                        
             var screen = new CapNhatTheLoaiWindow(theLoaiChon);
 
             if (screen.ShowDialog() == true)  

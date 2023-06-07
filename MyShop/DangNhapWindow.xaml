@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MyShop"
         mc:Ignorable="d"
-        Title="Dang Nhap Window" Height="450" Width="600" Loaded="Window_Loaded">
+        Title="Đăng Nhập Window" Height="450" Width="600" Loaded="Window_Loaded">
     <Canvas>
         <TextBlock Text="PHẦN MỀM QUẢN LÍ CỬA HÀNG SÁCH" FontWeight="Bold" FontSize="30" Canvas.Top="62" Canvas.Left="22"/>
         <TextBlock Text="Đăng Nhập" FontWeight="Bold" FontSize="25" Canvas.Left="233" Canvas.Top="135"/>

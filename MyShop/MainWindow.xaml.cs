@@ -243,7 +243,8 @@ namespace MyShop
 
         private void QuanLiKhachHangButton_Click(object sender, RoutedEventArgs e)
         {
-
+            var khachHangScreen = new KhachHangWindow();
+            khachHangScreen.Show();
         }
 
         private void BaoCaoButton_Click(object sender, RoutedEventArgs e)

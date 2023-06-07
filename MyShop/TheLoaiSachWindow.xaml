@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MyShop"
         mc:Ignorable="d"
-        Title="The Loai Sach Window" Height="550" Width="600" Loaded="Window_Loaded">
+        Title="Thể Loại Sách Window" Height="550" Width="600" Loaded="Window_Loaded">
     <Canvas>
         <StackPanel Orientation="Horizontal" Height="50" DockPanel.Dock="Top" Canvas.Left="10">
             <Button Margin="5" x:Name="themTheLoaiButton" Content="Thêm" Width="80" Height="35" 
