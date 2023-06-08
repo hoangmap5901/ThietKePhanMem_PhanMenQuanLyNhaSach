@@ -73,11 +73,11 @@
             </ListView.ItemContainerStyle>
         </ListView>
 
-        <TextBlock Text="Số KhachHang mỗi trang:" Canvas.Left="504" Canvas.Top="55"/>
+        <TextBlock Text="Số Khách Hàng mỗi trang:" Canvas.Left="504" Canvas.Top="55"/>
         <TextBox Name="rowsPerPageTextBox" Text="{Binding Path=RowsPerPage}" d:Text="2" Padding="5,5,0,0" Canvas.Left="473" Canvas.Top="92" Width="188" Height="30"/>
         <Button Name="updateRowsPerPageButton" Width="80" Height="34" Content="Cập nhật" Click="UpdateRowsPerPageButton_Click" Canvas.Left="527" Canvas.Top="146"/>
 
-        <TextBlock Text="Từ khóa:" Canvas.Left="504" Canvas.Top="199"/>
+        <TextBlock Text="Từ khóa tên:" Canvas.Left="504" Canvas.Top="199"/>
         <TextBox Name="keywordTextBox" Text="{Binding Path=Keyword}" Padding="5,5,0,0" Width="188" Height="30" Canvas.Left="473" Canvas.Top="228"/>
         <Button Content="Tìm kiếm" Width="80" Height="35" Name="searchButton" Click="SearchButton_Click" Canvas.Left="527" Canvas.Top="271"/>
 
@@ -95,10 +95,10 @@
 
         <StackPanel Orientation="Horizontal" Canvas.Left="133" Canvas.Top="390">
             <TextBlock Text="Đang hiển thị " Foreground="Green"/>
-            <TextBlock Text="{Binding Path=NumberOfItemsCurrentPage, ElementName=Khach_Hang_Window}" FontWeight="Bold"/>
-            <TextBlock Text=" KhachHang / " Foreground="Green"/>
-            <TextBlock Text="{Binding Path=TotalItems, ElementName=Khach_Hang_Window}" FontWeight="Bold"/>
-            <TextBlock Text=" KhachHang" Foreground="Green"/>
+            <TextBlock Text="{Binding Path=NumberOfItemsCurrentPage1, ElementName=Khach_Hang_Window}" FontWeight="Bold"/>
+            <TextBlock Text=" Khách Hàng  / " Foreground="Green"/>
+            <TextBlock Text="{Binding Path=TotalItems1, ElementName=Khach_Hang_Window}" FontWeight="Bold"/>
+            <TextBlock Text=" Khách Hàng" Foreground="Green"/>
         </StackPanel>
 
         <Button Name="nextButton" Width="80" Height="35" Click="NextButton_Click" Content="Next" Canvas.Left="339" Canvas.Top="336"/>

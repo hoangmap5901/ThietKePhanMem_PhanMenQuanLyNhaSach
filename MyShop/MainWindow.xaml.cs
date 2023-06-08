@@ -233,7 +233,8 @@ namespace MyShop
 
         private void QuanLiSachButton_Click(object sender, RoutedEventArgs e)
         {
-
+            var sachScreen = new SachWindow();
+            sachScreen.Show();
         }
 
         private void QuanLiDonHangButton_Click(object sender, RoutedEventArgs e)

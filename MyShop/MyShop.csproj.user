@@ -10,6 +10,9 @@
     <Compile Update="CapNhatKhachHangWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="CapNhatSachWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="CapNhatTheLoaiWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -22,10 +25,16 @@
     <Compile Update="MainWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="SachWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="TheLoaiSachWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="ThemKhachHangWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="ThemSachWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="ThemTheLoaiWindow.xaml.cs">
@@ -34,6 +43,9 @@
   </ItemGroup>
   <ItemGroup>
     <Page Update="CapNhatKhachHangWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="CapNhatSachWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="CapNhatTheLoaiWindow.xaml">
@@ -48,10 +60,16 @@
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="SachWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="TheLoaiSachWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="ThemKhachHangWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ThemSachWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="ThemTheLoaiWindow.xaml">

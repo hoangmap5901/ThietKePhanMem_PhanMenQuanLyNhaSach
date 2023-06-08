@@ -1,0 +1,114 @@
+﻿<Window x:Class="MyShop.SachWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MyShop"
+        x:Name="Sach_Window"
+        mc:Ignorable="d"
+        Title="Sách Window" Height="600" Width="1200" Loaded="Window_Loaded">
+    <Window.Resources>
+        <local:RelativeToAbsoluteConverter x:Key="absolute"/>
+    </Window.Resources>
+    <DockPanel LastChildFill="True">
+        <StackPanel Orientation="Vertical" Width="350" Background="LightGreen" DockPanel.Dock="Right">
+            <TextBlock Text="Thông Tin Sách" FontWeight="Bold" FontSize="20" Foreground="Brown" Margin="15, 10,0,5"/>
+            <Image x:Name="imagePath" 
+               d:Source="Images/Sach/book_icon.jpg" 
+               Source="{Binding Path=ImagePath, Converter={StaticResource absolute}, ElementName=Sach_Window}"
+               RenderOptions.BitmapScalingMode="HighQuality" 
+               Height="210" Width="200"/>
+            <TextBlock Text="Tên sách" FontWeight="Bold" FontSize="15" Foreground="Purple" Margin="15,5,0,0" />
+            <TextBlock x:Name="tenTextBox" Text="{Binding Path=TenSach, ElementName=Sach_Window}" Margin="0,5,0,0" Width="315"/>
+
+            <TextBlock Text="Thể loại sách" FontWeight="Bold" FontSize="15" Foreground="Purple" Margin="15,20,0,0" />
+            <TextBlock x:Name="theLoaiextBox" Text="{Binding Path=TheLoaiSach, ElementName=Sach_Window}" Margin="0,5,0,0" Width="315"/>
+
+            <TextBlock Text="Tác giả" FontWeight="Bold" FontSize="15" Foreground="Purple" Margin="15,20,0,0" />
+            <TextBlock x:Name="tacGiaTextBox" Text="{Binding Path=TacGia, ElementName=Sach_Window}" Margin="0,5,0,0" Width="315"/>
+            
+            <TextBlock Text="Giá" FontWeight="Bold" FontSize="15" Foreground="Purple" Margin="15,20,0,0" />
+            <TextBlock x:Name="giaTextBox" Text="{Binding Path=Gia, ElementName=Sach_Window}" Margin="0,5,0,0" Width="315"/>
+            
+            <TextBlock Text="Số lượng" FontWeight="Bold" FontSize="15" Foreground="Purple" Margin="15,20,0,0" />
+            <TextBlock x:Name="soLuongTextBox" Text="{Binding Path=SoLuong, ElementName=Sach_Window}" Margin="0,5,0,0" Width="315"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Vertical">
+            <StackPanel Orientation="Horizontal" Height="50" Margin="5, 20,0,0" DockPanel.Dock="Top">
+                <Button Margin="5" x:Name="themSachButton" Content="Thêm" Width="80" Height="35" 
+                Click="ThemSachButton_Click" />
+                <Button Margin="5" x:Name="xoaSachButton" Content="Xóa" Width="80" Height="35" 
+                Click="XoaSachButton_Click"/>
+                <Button Margin="5" x:Name="capNhatSachButton" Width="80" Height="35" Content="Cập nhật"
+                Click="CapNhatSachButton_Click"/>
+                <Button Margin="5" x:Name="timSachHetHangButton" Width="122" Height="35" Content="Tìm sách hết hàng"
+                Click="TimSachHetHanButton_Click"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0, 10, 0, 0">
+                <TextBlock Text="Thể loại sách:" Margin="5,5,0,0" Width="88"/>
+
+                <ComboBox SelectionChanged="TheLoaiSachComboBox_SelectionChanged" Name="theLoaiSachComboBox" Width="200" Height="26" VerticalAlignment="Center">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Path=Ten}" Padding="0,0,0,0"/>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="15,5,0,0">
+
+                <DataGrid x:Name="sachDataGrid" SelectionChanged="DataGrid_SelectionChanged" Height="356" Width="411" HorizontalScrollBarVisibility="Visible"
+                  VerticalScrollBarVisibility="Visible" IsReadOnly="True"/>
+
+                <StackPanel Orientation="Vertical" Margin="0,0,0,0">
+                    <TextBlock Text="Số Sách mỗi trang:" Margin="140,0,0,0"/>
+                    <TextBox x:Name="rowsPerPageTextBox" Text="{Binding RowsPerPage}" d:Text="2" Padding="5,5,0,0" Margin="5,15,0,0" Width="52" Height="30"/>
+                    <Button x:Name="updateRowsPerPageButton" Width="80" Height="30" Content="Cập nhật" Margin="5,15,0,0" Click="UpdateRowsPerPageButton_Click"/>
+
+                    <TextBlock Text="Từ khóa tên sách:" Margin="140,15,0,0"/>
+                    <TextBox x:Name="keywordTextBox" Text="{Binding Keyword}" Padding="5,5,0,0" Margin="5,15,0,0" Width="230" Height="30"/>
+                    <Button Content="Tìm kiếm" Width="80" Height="30" Margin="5,15,0,0" x:Name="searchButton" Click="SearchButton_Click"/>
+
+                    <TextBlock Text="Lọc sách theo khoảng giá:" Margin="120,15,0,0"/>
+                    <StackPanel Orientation="Horizontal" Height="50" Margin="5,15,0,0">
+                        <TextBlock Text="Giá min:" Margin="30,15,0,0"/>
+                        <TextBox x:Name="giaMinTextBox" Text="{Binding GiaMin}" Padding="5,5,0,0" Margin="5,0,0,0" Width="100" Height="30"/>
+                        <TextBlock Text="Giá max:" Margin="50,15,0,0"/>
+                        <TextBox x:Name="giaMaxTextBox" Text="{Binding GiaMax}" Padding="5,5,0,0" Margin="5,0,0,0" Width="100" Height="30"/>
+                    </StackPanel>
+                    <Button Content="Lọc" Width="80" Height="30" Margin="5,5,0,0" x:Name="priceFilterButton" Click="FilterPriceButton_Click"/>
+                </StackPanel>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0, 20, 0, 0">
+                <Button Name="previousButton" Width="80" Height="35" Click="PreviousButton_Click" Content="Previous" Margin="50, 0, 0, 0"/>
+
+                <ComboBox SelectionChanged="PagingComboBox_SelectionChanged" Name="pagingComboBox" Width="150" Height="35" 
+                      HorizontalAlignment="center" VerticalAlignment="Center" Margin="20,0, 0, 0">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding Path=Page}" Padding="30,5,0,0"/>
+                                <TextBlock Text="/" Height="20" Padding="30,5,0,0"/>
+                                <TextBlock Text="{Binding Path=TotalPages}" Padding="30,5,0,0"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+
+                <Button Name="nextButton" Width="80" Height="35" Click="NextButton_Click" Content="Next" Margin="20, 0, 0, 0"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="150, 15, 0, 0">
+                <TextBlock Text="Đang hiển thị " Foreground="Orange" FontWeight="Bold"/>
+                <TextBlock Text="{Binding Path=NumberOfItemsCurrentPage2, ElementName=Sach_Window}" FontWeight="Bold"/>
+                <TextBlock Text=" Sách / " Foreground="Orange" FontWeight="Bold"/>
+                <TextBlock Text="{Binding Path=TotalItems2, ElementName=Sach_Window}" FontWeight="Bold"/>
+                <TextBlock Text=" Sách" Foreground="Orange" FontWeight="Bold"/>
+            </StackPanel>
+        </StackPanel>
+    </DockPanel>
+</Window>

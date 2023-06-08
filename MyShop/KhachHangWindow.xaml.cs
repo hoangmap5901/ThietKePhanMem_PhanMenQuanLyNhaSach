@@ -19,6 +19,7 @@ namespace MyShop
     /// </summary>
     public partial class KhachHangWindow : Window
     {
+
         public int RowsPerPage { get => _rowsPerPage; set => _rowsPerPage = value; }
         public string Keyword { get; set; } = "";
         int _totalItems;
@@ -28,18 +29,18 @@ namespace MyShop
         int _totalPages;
 
         public static readonly DependencyProperty TotalItemsProperty =
-          DependencyProperty.Register("TotalItems", typeof(int), typeof(Window), new PropertyMetadata(null));
+          DependencyProperty.Register("TotalItems1", typeof(int), typeof(Window), new PropertyMetadata(null));
 
         public static readonly DependencyProperty NumberOfItemsCurrentPageProperty =
-           DependencyProperty.Register("NumberOfItemsCurrentPage", typeof(int), typeof(Window), new PropertyMetadata(null));
+           DependencyProperty.Register("NumberOfItemsCurrentPage1", typeof(int), typeof(Window), new PropertyMetadata(null));
 
-        public int TotalItems
+        public int TotalItems1
         {
             get { return (int)GetValue(TotalItemsProperty); }
             set { SetValue(TotalItemsProperty, value); }
         }
 
-        public int NumberOfItemsCurrentPage
+        public int NumberOfItemsCurrentPage1
         {
             get { return (int)GetValue(NumberOfItemsCurrentPageProperty); }
             set { SetValue(NumberOfItemsCurrentPageProperty, value); }
@@ -69,11 +70,11 @@ namespace MyShop
 
             var khachHangsKeyword = khachHangs.Where(khachHang => khachHang.Ten.Contains(Keyword));
             _totalItems = khachHangsKeyword.Count();
-            TotalItems = _totalItems;
+            TotalItems1 = _totalItems;
 
             var khachHangsRowsPerPage = khachHangsKeyword.Skip((_currentPage - 1) * RowsPerPage).Take(RowsPerPage);
             _numberOfItemsCurrentPage = khachHangsRowsPerPage.Count();
-            NumberOfItemsCurrentPage = _numberOfItemsCurrentPage;
+            NumberOfItemsCurrentPage1 = _numberOfItemsCurrentPage;
 
             khachHangListView.ItemsSource = khachHangsRowsPerPage;
         }
@@ -107,7 +108,6 @@ namespace MyShop
             if (screen.ShowDialog() == true)
             {
                 UpdateDataSource();
-                //UpdateDataSource();
                 UpdatePagingInfo();
                 if (numberOfItemsCurrentPagePrev == RowsPerPage)
                 {
@@ -203,7 +203,7 @@ namespace MyShop
             KhachHang khachHangChon = khachHangListView.SelectedItem as KhachHang;
 
             string khachHangInfo = @$"
-                            Thông Tin Khách Hàng
+                                     Thông Tin Khách Hàng
             Khách hàng ID: {khachHangChon.KhachHangId}
             Tên: {khachHangChon.Ten}
             Số điện thoại: {khachHangChon.SoDienThoai}
@@ -213,21 +213,21 @@ namespace MyShop
             MessageBox.Show(khachHangInfo);
         }
 
-        private void NextButton_Click(object sender, RoutedEventArgs e)
-        {
-            int i = pagingComboBox.SelectedIndex;
-            if (i < (_totalPages - 1))
-            {
-                pagingComboBox.SelectedIndex = i + 1;
-            }
-        }
-
         private void PreviousButton_Click(object sender, RoutedEventArgs e)
         {
             int i = pagingComboBox.SelectedIndex;
             if (i > 0)
             {
                 pagingComboBox.SelectedIndex = i - 1;
+            }
+        }
+
+        private void NextButton_Click(object sender, RoutedEventArgs e)
+        {
+            int i = pagingComboBox.SelectedIndex;
+            if (i < (_totalPages - 1))
+            {
+                pagingComboBox.SelectedIndex = i + 1;
             }
         }
 
