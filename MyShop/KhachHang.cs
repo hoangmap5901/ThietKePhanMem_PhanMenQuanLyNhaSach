@@ -12,7 +12,7 @@ namespace MyShop
         {
             DonHangs = new HashSet<DonHang>();
         }
-  
+
         public int KhachHangId { get; set; }
         public string Ten { get; set; }
         public string SoDienThoai { get; set; }

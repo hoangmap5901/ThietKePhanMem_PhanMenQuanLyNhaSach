@@ -71,7 +71,7 @@ namespace MyShop
 
                 entity.Property(e => e.KhachHangId).HasColumnName("KhachHang_ID");
 
-                entity.Property(e => e.NgayTao).HasColumnType("smalldatetime");
+                entity.Property(e => e.NgayTao).HasColumnType("date");
 
                 entity.Property(e => e.TrangThaiDonHangId).HasColumnName("TrangThaiDonHang_ID");
 
@@ -94,17 +94,15 @@ namespace MyShop
 
                 entity.Property(e => e.KhachHangId).HasColumnName("KhachHangID");
 
-                entity.Property(e => e.DiaChi).HasColumnType("ntext");
+                entity.Property(e => e.DiaChi).HasMaxLength(200);
 
-                entity.Property(e => e.Email).HasColumnType("ntext");
+                entity.Property(e => e.Email).HasMaxLength(200);
 
-                entity.Property(e => e.ImagePath).HasColumnType("text");
+                entity.Property(e => e.ImagePath).HasMaxLength(200);
 
-                entity.Property(e => e.SoDienThoai)
-                    .HasMaxLength(10)
-                    .IsUnicode(false);
+                entity.Property(e => e.SoDienThoai).HasMaxLength(200);
 
-                entity.Property(e => e.Ten).HasColumnType("ntext");
+                entity.Property(e => e.Ten).HasMaxLength(200);
             });
 
             modelBuilder.Entity<Sach>(entity =>
@@ -113,11 +111,11 @@ namespace MyShop
 
                 entity.Property(e => e.SachId).HasColumnName("SachID");
 
-                entity.Property(e => e.ImagePath).HasColumnType("text");
+                entity.Property(e => e.ImagePath).HasMaxLength(200);
 
-                entity.Property(e => e.TacGia).HasColumnType("ntext");
+                entity.Property(e => e.TacGia).HasMaxLength(200);
 
-                entity.Property(e => e.Ten).HasColumnType("ntext");
+                entity.Property(e => e.Ten).HasMaxLength(200);
 
                 entity.Property(e => e.TheLoaiId).HasColumnName("TheLoai_ID");
 
@@ -125,7 +123,7 @@ namespace MyShop
                     .WithMany(p => p.Saches)
                     .HasForeignKey(d => d.TheLoaiId)
                     .OnDelete(DeleteBehavior.SetNull)
-                    .HasConstraintName("FK_Sach_TheLoai");
+                    .HasConstraintName("FK_Sach_Sach");
             });
 
             modelBuilder.Entity<TaiKhoan>(entity =>
@@ -134,11 +132,11 @@ namespace MyShop
 
                 entity.Property(e => e.TaiKhoanId).HasColumnName("TaiKhoanID");
 
-                entity.Property(e => e.MatKhau).HasColumnType("ntext");
+                entity.Property(e => e.MatKhau).HasMaxLength(200);
 
-                entity.Property(e => e.TenDangNhap).HasColumnType("ntext");
+                entity.Property(e => e.TenDangNhap).HasMaxLength(200);
 
-                entity.Property(e => e.VaiTro).HasColumnType("ntext");
+                entity.Property(e => e.VaiTro).HasMaxLength(200);
             });
 
             modelBuilder.Entity<TheLoai>(entity =>
@@ -147,7 +145,7 @@ namespace MyShop
 
                 entity.Property(e => e.TheLoaiId).HasColumnName("TheLoaiID");
 
-                entity.Property(e => e.Ten).HasColumnType("ntext");
+                entity.Property(e => e.Ten).HasMaxLength(200);
             });
 
             modelBuilder.Entity<TrangThaiDonHang>(entity =>
@@ -156,11 +154,11 @@ namespace MyShop
 
                 entity.Property(e => e.TrangThaiDonHangId).HasColumnName("TrangThaiDonHangID");
 
-                entity.Property(e => e.ChuHienThi).HasColumnType("ntext");
+                entity.Property(e => e.ChuHienThi).HasMaxLength(200);
 
-                entity.Property(e => e.MoTa).HasColumnType("ntext");
+                entity.Property(e => e.MoTa).HasMaxLength(200);
 
-                entity.Property(e => e.TrangThai).HasColumnType("ntext");
+                entity.Property(e => e.TrangThai).HasMaxLength(200);
             });
 
             OnModelCreatingPartial(modelBuilder);
