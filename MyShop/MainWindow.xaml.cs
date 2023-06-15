@@ -239,7 +239,8 @@ namespace MyShop
 
         private void QuanLiDonHangButton_Click(object sender, RoutedEventArgs e)
         {
-
+            var donHangScreen = new DonHangWindow();
+            donHangScreen.Show();
         }
 
         private void QuanLiKhachHangButton_Click(object sender, RoutedEventArgs e)
