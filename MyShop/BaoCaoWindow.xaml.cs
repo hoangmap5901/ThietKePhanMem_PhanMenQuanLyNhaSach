@@ -69,14 +69,15 @@ namespace MyShop
                     Labels = new List<string>(dateAxisXDoanhThuChart)
                 });
 
-                var sanPhamsBanChay = db.ChiTietDonHangs
-                    .GroupBy(x => x.SachId)
-                    .Select(u => new { 
-                        
-                    })
+
             }
 
            
+
+        }
+
+        private void BaoCaoDoanhThuButton_Click(object sender, RoutedEventArgs e)
+        {
 
         }
     }
