@@ -251,7 +251,8 @@ namespace MyShop
 
         private void BaoCaoButton_Click(object sender, RoutedEventArgs e)
         {
-
+            var baoCaoScreen = new BaoCaoWindow();
+            baoCaoScreen.Show();
         }
 
     }
