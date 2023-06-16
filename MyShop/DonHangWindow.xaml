@@ -4,55 +4,58 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MyShop"
+        x:Name="Don_Hang_Window"
         mc:Ignorable="d"
-        Title="Đơn Hàng Window" Height="600" Width="1200">
+        Title="Đơn Hàng Window" Height="600" Width="1200" Loaded="Window_Loaded">
     <DockPanel LastChildFill="True">
         <StackPanel Orientation="Vertical" Width="500" Background="Pink" DockPanel.Dock="Right">
             <TextBlock Text="Chi Tiết Đơn Hàng" FontWeight="Bold" FontSize="20" Foreground="Blue" Margin="170, 10,0,5"/>
 
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="ID đơn hàng" FontWeight="Bold" FontSize="15" Foreground="Green" Margin="15,5,0,0" />
-                <TextBlock x:Name="idDonHangTextBox" Text="{Binding Path=TenSach, ElementName=Sach_Window}" Margin="20,5,0,0" Width="200"/>
+                <TextBlock x:Name="idDonHangTextBox" Text="{Binding Path=DonHangID, ElementName=Don_Hang_Window}" Margin="20,7,0,0" Width="200"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Trạng thái đơn hàng" FontWeight="Bold" FontSize="15" Foreground="Green" Margin="15,10,0,0" />
-                <TextBlock x:Name="trangThaiDonHangTextBox" Text="{Binding Path=TenSach, ElementName=Sach_Window}" Margin="20,5,0,0" Width="200"/>
+                <TextBlock x:Name="trangThaiDonHangTextBox1" Text="{Binding Path=TrangThai, ElementName=Don_Hang_Window}" Margin="20,10,0,0"/>
+                <TextBlock Text=" - " Margin="0,15,0,0"/>
+                <TextBlock x:Name="trangThaiDonHangTextBox2" Text="{Binding Path=MoTa, ElementName=Don_Hang_Window}" Margin="0,10,0,0"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="ID khách hàng" FontWeight="Bold" FontSize="15" Foreground="Green" Margin="15,10,0,0" />
-                <TextBlock x:Name="idKhachHangTextBox" Text="{Binding Path=TenSach, ElementName=Sach_Window}" Margin="20,5,0,0" Width="200"/>
+                <TextBlock Text="ID khách hàng" FontWeight="Bold" FontSize="15" Foreground="Green" Margin="15,5,0,0" />
+                <TextBlock x:Name="idKhachHangTextBox" Text="{Binding Path=KhachHangID, ElementName=Don_Hang_Window}" Margin="20,15,0,0" Width="200"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Tên" FontWeight="Bold" FontSize="15" Foreground="Green" Margin="15,10,0,0" />
-                <TextBlock x:Name="tenTextBox" Text="{Binding Path=TenSach, ElementName=Sach_Window}" Margin="20,5,0,0" Width="200"/>
+                <TextBlock x:Name="tenTextBox" Text="{Binding Path=Ten, ElementName=Don_Hang_Window}" Margin="20,10,0,0" Width="200"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Số diện thoại" FontWeight="Bold" FontSize="15" Foreground="Green" Margin="15,10,0,0" />
-                <TextBlock x:Name="soDienThoaiTextBox" Text="{Binding Path=TenSach, ElementName=Sach_Window}" Margin="20,5,0,0" Width="200"/>
+                <TextBlock x:Name="soDienThoaiTextBox" Text="{Binding Path=SoDienThoai, ElementName=Don_Hang_Window}" Margin="20,10,0,0" Width="200"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Địa chỉ" FontWeight="Bold" FontSize="15" Foreground="Green" Margin="15,10,0,0" />
-                <TextBlock x:Name="diaChiTextBox" Text="{Binding Path=TenSach, ElementName=Sach_Window}" Margin="20,5,0,0" Width="200"/>
+                <TextBlock x:Name="diaChiTextBox" Text="{Binding Path=DiaChi, ElementName=Don_Hang_Window}" Margin="20,10,0,0" Width="200"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Email" FontWeight="Bold" FontSize="15" Foreground="Green" Margin="15,10,0,0" />
-                <TextBlock x:Name="emailTextBox" Text="{Binding Path=TenSach, ElementName=Sach_Window}" Margin="20,5,0,0" Width="200"/>
+                <TextBlock x:Name="emailTextBox" Text="{Binding Path=Email, ElementName=Don_Hang_Window}" Margin="20,10,0,0" Width="200"/>
             </StackPanel>
 
             <TextBlock Text="Danh sách sách" FontWeight="Bold" FontSize="15" Foreground="Green" Margin="15,10,0,10" />
 
-            <DataGrid x:Name="sachDataGrid" SelectionChanged="SachDataGrid_SelectionChanged" Height="231" Width="412" HorizontalScrollBarVisibility="Visible"
+            <DataGrid x:Name="sachDataGrid" Height="231" Width="412" HorizontalScrollBarVisibility="Visible"
                   VerticalScrollBarVisibility="Visible" IsReadOnly="True"/>
 
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Tổng:" FontWeight="Bold" FontSize="15" Foreground="OrangeRed" Margin="15,20,0,10" />
-                <TextBlock x:Name="tongTextBox" Text="{Binding Path=TenSach, ElementName=Sach_Window}" Margin="20,10,0,0" Width="400"/>
+                <TextBlock x:Name="tongTextBox" Text="{Binding Path=Tong1, ElementName=Don_Hang_Window}" FontWeight="Bold" Margin="20,25,0,0" Width="400"/>
             </StackPanel>
         </StackPanel>
 
@@ -81,7 +84,7 @@
                     <TextBlock Text="Đến ngày:" Margin="30,15,0,0"/>
                     <DatePicker Name="denNgayDatePicker" Margin="30"></DatePicker>
 
-                    <Button Content="Tìm kiếm" Width="80" Height="30" Margin="5,5,0,0" x:Name="priceFilterButton" Click="FilterPriceButton_Click"/>
+                    <Button Content="Tìm kiếm" Width="80" Height="30" Margin="5,5,0,0" x:Name="timKiemButton" Click="timKiemButton_Click"/>
                 </StackPanel>
             </StackPanel>
 
@@ -106,13 +109,11 @@
 
             <StackPanel Orientation="Horizontal" Margin="120, 15, 0, 0">
                 <TextBlock Text="Đang hiển thị " Foreground="Orange" FontWeight="Bold"/>
-                <TextBlock Text="{Binding Path=NumberOfItemsCurrentPage2, ElementName=Sach_Window}" FontWeight="Bold"/>
+                <TextBlock Text="{Binding Path=NumberOfItemsCurrentPage3, ElementName=Don_Hang_Window}" FontWeight="Bold"/>
                 <TextBlock Text=" Đơn hàng / " Foreground="Orange" FontWeight="Bold"/>
-                <TextBlock Text="{Binding Path=TotalItems2, ElementName=Sach_Window}" FontWeight="Bold"/>
+                <TextBlock Text="{Binding Path=TotalItems3, ElementName=Don_Hang_Window}" FontWeight="Bold"/>
                 <TextBlock Text=" Đơn hàng" Foreground="Orange" FontWeight="Bold"/>
             </StackPanel>
         </StackPanel>
-
-
     </DockPanel>
 </Window>

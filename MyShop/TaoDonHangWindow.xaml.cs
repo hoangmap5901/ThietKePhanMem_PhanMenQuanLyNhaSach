@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Xml.Linq;
 
 namespace MyShop
 {
@@ -23,12 +24,13 @@ namespace MyShop
         public int SoLuong { get => _soLuong; set => _soLuong = value; }
         int _soLuong = 0;
         public DonHang NewDonHang { get; set; } = new DonHang();
+        List<Sach> _sachesThem = new List<Sach>();
         List<ChiTietDonHang> _chiTietDonHangs = new List<ChiTietDonHang>();
 
         public static readonly DependencyProperty TongProperty =
-       DependencyProperty.Register("Tong", typeof(int), typeof(Window), new PropertyMetadata(null));
+       DependencyProperty.Register("Tong2", typeof(int), typeof(Window), new PropertyMetadata(null));
 
-        public int Tong
+        public int Tong2
         {
             get { return (int)GetValue(TongProperty); }
             set { SetValue(TongProperty, value); }
@@ -82,16 +84,28 @@ namespace MyShop
                 {
                     SachId = sachChon.SachId,
                     Gia = sachChon.Gia,
-                    SoLuong = SoLuong
+                    SoLuong = SoLuong,
+                    Tong = sachChon.Gia * SoLuong
                 });
 
-                sachDataGrid.ItemsSource = _chiTietDonHangs;
+                _sachesThem.Add(new Sach()
+                {
+                    SachId = sachChon.SachId,
+                    TheLoaiId = sachChon.TheLoaiId,
+                    Ten = sachChon.Ten,
+                    Gia = sachChon.Gia,
+                    SoLuong = SoLuong,
+                    TacGia = sachChon.TacGia,
+                    ImagePath = sachChon.ImagePath
+                });
 
-                Tong = 0;
+                sachDataGrid.ItemsSource = _sachesThem.ToList();
+
+                Tong2 = 0;
 
                 for (int i = 0; i < _chiTietDonHangs.Count; i++)
                 {
-                    Tong += (int)_chiTietDonHangs[i].Gia * (int)_chiTietDonHangs[i].SoLuong;
+                    Tong2 += (int)_chiTietDonHangs[i].Tong;
                 }
             }
         }
@@ -109,16 +123,15 @@ namespace MyShop
                 {
                     KhachHangId = NewDonHang.KhachHangId,
                     TrangThaiDonHangId = NewDonHang.TrangThaiDonHangId,
-                    Tong = Tong,
+                    Tong = Tong2,
                     NgayTao = ngayTaoDatePicker.SelectedDate.Value.Date
                 };
 
+
                 db.DonHangs.Add(donHangThem);
                 db.SaveChanges();
-
                 MessageBox.Show($"Successfully added new DonHang record into SQL Server with DonHangID = {donHangThem.DonHangId}.");
 
-                string messageThemChiTietDonHang = "";
                 for (int i = 0; i < _chiTietDonHangs.Count; i++)
                 {
                     var chiTietDonHangThem = new ChiTietDonHang()
@@ -127,23 +140,25 @@ namespace MyShop
                         SachId = _chiTietDonHangs[i].SachId,
                         Gia = _chiTietDonHangs[i].Gia,
                         SoLuong = _chiTietDonHangs[i].SoLuong,
-                        Tong = _chiTietDonHangs[i].Gia * _chiTietDonHangs[i].SoLuong
+                        Tong = _chiTietDonHangs[i].Tong
                     };
 
                     db.ChiTietDonHangs.Add(chiTietDonHangThem);
                     db.SaveChanges();
-
-                   messageThemChiTietDonHang += $"Successfully added new ChiTietDonHang record into SQL Server with chiTietDonHangID = {chiTietDonHangThem.DonHangId}.\n";
                 }
 
-                MessageBox.Show(messageThemChiTietDonHang);
+                MessageBox.Show($"Successfully added {_chiTietDonHangs.Count} new ChiTietDonHang records into SQL Server.");
 
+                string messageGiamSoLuongSachBan = "";
                 for (int i = 0; i < _chiTietDonHangs.Count; i++)
                 {
-                    var sachXoa = db.Saches.FirstOrDefault(u => u.SachId == _chiTietDonHangs[i].SachId);
-                    sachXoa.SoLuong = sachXoa.SoLuong - _chiTietDonHangs[i].SoLuong;
+                    var sachBan = db.Saches.FirstOrDefault(u => u.SachId == _chiTietDonHangs[i].SachId);
+                    sachBan.SoLuong = sachBan.SoLuong - _chiTietDonHangs[i].SoLuong;
                     db.SaveChanges();
+
+                    messageGiamSoLuongSachBan += $"Successfully reduced {_chiTietDonHangs[i].SoLuong} so luong of Sach record in SQL Server with sachID = {_chiTietDonHangs[i].SachId}.\n";
                 }
+                MessageBox.Show(messageGiamSoLuongSachBan);
 
                 DialogResult = true;
             }

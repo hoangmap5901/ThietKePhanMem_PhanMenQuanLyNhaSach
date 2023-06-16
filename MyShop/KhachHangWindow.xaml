@@ -34,8 +34,6 @@
                             </Border.Effect>
                         </Border>
                         <StackPanel Orientation="Horizontal" Margin="15,5,0,0">
-                            <TextBlock Text="{Binding Path=KhachHangID}" FontWeight="Bold" Height="20"/>
-                            <TextBlock Text=" - " Height="20"/>
                             <TextBlock Text="{Binding Path=Ten}" Foreground="Blue" Height="20"/>
                         </StackPanel>
                     </StackPanel>
@@ -74,11 +72,11 @@
         </ListView>
 
         <TextBlock Text="Số Khách Hàng mỗi trang:" Canvas.Left="504" Canvas.Top="55"/>
-        <TextBox Name="rowsPerPageTextBox" Text="{Binding Path=RowsPerPage}" d:Text="2" Padding="5,5,0,0" Canvas.Left="473" Canvas.Top="92" Width="188" Height="30"/>
+        <TextBox Name="rowsPerPageTextBox" Text="{Binding RowsPerPage}" d:Text="2" Padding="5,5,0,0" Canvas.Left="473" Canvas.Top="92" Width="188" Height="30"/>
         <Button Name="updateRowsPerPageButton" Width="80" Height="34" Content="Cập nhật" Click="UpdateRowsPerPageButton_Click" Canvas.Left="527" Canvas.Top="146"/>
 
         <TextBlock Text="Từ khóa tên:" Canvas.Left="504" Canvas.Top="199"/>
-        <TextBox Name="keywordTextBox" Text="{Binding Path=Keyword}" Padding="5,5,0,0" Width="188" Height="30" Canvas.Left="473" Canvas.Top="228"/>
+        <TextBox Name="keywordTextBox" Text="{Binding Keyword}" Padding="5,5,0,0" Width="188" Height="30" Canvas.Left="473" Canvas.Top="228"/>
         <Button Content="Tìm kiếm" Width="80" Height="35" Name="searchButton" Click="SearchButton_Click" Canvas.Left="527" Canvas.Top="271"/>
 
         <ComboBox SelectionChanged="PagingComboBox_SelectionChanged" Name="pagingComboBox" Width="150" Height="35" Canvas.Left="156" Canvas.Top="336" HorizontalAlignment="center" VerticalAlignment="Center">

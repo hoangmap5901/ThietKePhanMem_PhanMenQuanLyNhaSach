@@ -4,19 +4,20 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MyShop"
-         x:Name="Don_Hang_Window"
+         x:Name="Tao_Don_Hang_Window"
         mc:Ignorable="d"
         Title="Tạo Đơn Hàng Window" Height="850" Width="1000" Loaded="Window_Loaded">
+    <Window.Resources>
+        <local:RelativeToAbsoluteConverter x:Key="absolute"/>
+    </Window.Resources>
     <Canvas>
         <TextBlock Text="Nhập Thông Tin Tạo Đơn Hàng" FontWeight="Bold" FontSize="25" Canvas.Left="337" Canvas.Top="56"/>
 
         <TextBlock Text="Khách hàng" Canvas.Left="110" Canvas.Top="151"/>
-        <ComboBox SelectionChanged="khachHangComboBox_SelectionChanged" Name="khachHangComboBox" Width="307" Height="26" VerticalAlignment="Center" Canvas.Left="249" Canvas.Top="143" HorizontalAlignment="Left">
+        <ComboBox SelectionChanged="khachHangComboBox_SelectionChanged" Name="khachHangComboBox" Width="378" Height="26" VerticalAlignment="Center" Canvas.Left="250" Canvas.Top="143" HorizontalAlignment="Left">
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal" Margin="15,5,0,0">
-                        <TextBlock Text="{Binding Path=KhachHangID}" FontWeight="Bold" Height="20"/>
-                        <TextBlock Text=" - " Height="20"/>
                         <TextBlock Text="{Binding Path=Ten}" Height="20"/>
                     </StackPanel>
                 </DataTemplate>
@@ -24,8 +25,8 @@
         </ComboBox>
 
         <TextBlock Text="Trạng thái đơn hàng" Canvas.Left="110" Canvas.Top="213" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-        <ComboBox SelectionChanged="trangThaiDonHangComboBox_SelectionChanged" Name="trangThaiDonHangComboBox" Width="307" Height="26" VerticalAlignment="Top" 
-                  Canvas.Left="249" Canvas.Top="205" HorizontalAlignment="Center">
+        <ComboBox SelectionChanged="trangThaiDonHangComboBox_SelectionChanged" Name="trangThaiDonHangComboBox" Width="378" Height="26" VerticalAlignment="Center" 
+                  Canvas.Left="250" Canvas.Top="205" HorizontalAlignment="Left">
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal" Margin="15,5,0,0">
@@ -38,36 +39,36 @@
         </ComboBox>
 
         <TextBlock Text="Ngày tạo" Canvas.Left="110" Canvas.Top="278" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-        <DatePicker Name="ngayTaoDatePicker" Canvas.Left="249" Canvas.Top="274" HorizontalAlignment="Left" VerticalAlignment="Center" Width="307"></DatePicker>
+        <DatePicker Name="ngayTaoDatePicker" Canvas.Left="250" Canvas.Top="274" HorizontalAlignment="Left" VerticalAlignment="Center" Width="378"></DatePicker>
 
         <TextBlock Text="Sách" Canvas.Left="110" Canvas.Top="332" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <ComboBox SelectionChanged="sachDonHangComboBox_SelectionChanged" Name="sachDonHangComboBox" Width="308" Height="26" VerticalAlignment="Top" 
+        <ComboBox Name="sachDonHangComboBox" Width="380" Height="26" VerticalAlignment="Center" 
                   Canvas.Left="246" Canvas.Top="324" HorizontalAlignment="Left">
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal" Margin="15,5,0,0">
-                        <TextBlock Text="{Binding Path=SachID}" FontWeight="Bold" Height="20"/>
+                        <TextBlock Text="{Binding Path=Ten}" Height="20"/>
                         <TextBlock Text=" - " Height="20"/>
-                        <TextBlock Text="{Binding Path=Ten}" Foreground="Blue" Height="20"/>
+                        <TextBlock Text="{Binding Path=TacGia}" Height="20"/>
                         <TextBlock Text=" - " Height="20"/>
-                        <TextBlock Text="{Binding Path=TacGia}" Foreground="Blue" Height="20"/>
+                        <TextBlock Text="{Binding Path=Gia}" Height="20"/>
                         <TextBlock Text=" - " Height="20"/>
-                        <TextBlock Text="{Binding Path=Gia}" Foreground="Blue" Height="20"/>
+                        <TextBlock Text="{Binding Path=SoLuong}" Height="20"/>
                     </StackPanel>
                 </DataTemplate>
             </ComboBox.ItemTemplate>
         </ComboBox>
 
-        <TextBlock Text="Số lượng" Canvas.Left="597" Canvas.Top="332" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-        <TextBox Name="soLuongTextBox" Text="{Binding Path=SoLuong}" d:Text="5" Padding="5,5,0,0" Canvas.Left="670" Canvas.Top="324" Width="188" Height="30"/>
-        <Button x:Name="themSachButton" Content="Thêm sách" Click="ThemSachButton_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="533" Canvas.Top="374" Width="70" Height="27"/>
+        <TextBlock Text="Số lượng" Canvas.Left="706" Canvas.Top="333" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <TextBox Name="soLuongTextBox" Text="{Binding SoLuong}" d:Text="5" Padding="5,5,0,0" Canvas.Left="779" Canvas.Top="325" Width="188" Height="30" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Button x:Name="themSachButton" Content="Thêm sách" Click="ThemSachButton_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="604" Canvas.Top="390" Width="70" Height="27"/>
 
-        <TextBlock Text="Đơn hàng sách thêm" Canvas.Left="110" Canvas.Top="411" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-        <DataGrid x:Name="sachDataGrid" SelectionChanged="DataGrid_SelectionChanged" Height="248" Width="609" HorizontalScrollBarVisibility="Visible"
-                  VerticalScrollBarVisibility="Visible" IsReadOnly="True" Canvas.Left="249" Canvas.Top="442" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <TextBlock Text="Danh sách sách thêm" Canvas.Left="110" Canvas.Top="411" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <DataGrid x:Name="sachDataGrid" Height="248" Width="695" HorizontalScrollBarVisibility="Visible"
+                  VerticalScrollBarVisibility="Visible" IsReadOnly="True" Canvas.Left="249" Canvas.Top="442" HorizontalAlignment="Left" VerticalAlignment="Center"/>
 
         <TextBlock Text="Tổng" Canvas.Left="110" Canvas.Top="728" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-        <TextBlock Text="{Binding Path=Tong, ElementName=Don_Hang_Window}" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Width="609" Canvas.Left="249" Canvas.Top="728" />
+        <TextBlock Text="{Binding Path=Tong2, ElementName=Tao_Don_Hang_Window}" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Width="609" Canvas.Left="249" Canvas.Top="728" />
 
         <Button x:Name="taoButton" IsDefault="True" Content="Tạo" Click="TaoButton_Click" HorizontalAlignment="Center" VerticalAlignment="Top" Canvas.Left="312" Canvas.Top="774" Height="27" Width="50"/>
         <Button x:Name="dongButton" IsCancel="True" Content="Đóng" HorizontalAlignment="Center" VerticalAlignment="Top" Canvas.Left="670" Canvas.Top="774" Height="27" Width="50"/>

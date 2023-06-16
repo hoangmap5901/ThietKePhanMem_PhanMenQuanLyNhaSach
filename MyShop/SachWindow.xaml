@@ -12,7 +12,7 @@
     </Window.Resources>
     <DockPanel LastChildFill="True">
         <StackPanel Orientation="Vertical" Width="350" Background="LightGreen" DockPanel.Dock="Right">
-            <TextBlock Text="Thông Tin Sách" FontWeight="Bold" FontSize="20" Foreground="Brown" Margin="15, 10,0,5"/>
+            <TextBlock Text="Thông Tin Sách" FontWeight="Bold" FontSize="20" Foreground="Brown" Margin="100, 10,0,5"/>
             <Image x:Name="imagePath" 
                d:Source="Images/Sach/book_icon.jpg" 
                Source="{Binding Path=ImagePath, Converter={StaticResource absolute}, ElementName=Sach_Window}"

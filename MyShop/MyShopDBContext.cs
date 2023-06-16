@@ -42,9 +42,7 @@ namespace MyShop
             {
                 entity.ToTable("ChiTietDonHang");
 
-                entity.Property(e => e.ChiTietDonHangId)
-                    .ValueGeneratedNever()
-                    .HasColumnName("ChiTietDonHangID");
+                entity.Property(e => e.ChiTietDonHangId).HasColumnName("ChiTietDonHangID");
 
                 entity.Property(e => e.DonHangId).HasColumnName("DonHang_ID");
 

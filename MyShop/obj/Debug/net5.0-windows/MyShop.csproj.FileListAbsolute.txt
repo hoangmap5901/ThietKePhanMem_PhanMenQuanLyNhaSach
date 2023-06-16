@@ -296,3 +296,7 @@ C:\Users\dell\Desktop\21810012_MyShop\MyShop\obj\Debug\net5.0-windows\MyShop.g.r
 C:\Users\dell\Desktop\21810012_MyShop\MyShop\obj\Debug\net5.0-windows\MyShop.csproj.Fody.CopyLocal.cache
 C:\Users\dell\Desktop\21810012_MyShop\MyShop\obj\Debug\net5.0-windows\DonHangWindow.g.cs
 C:\Users\dell\Desktop\21810012_MyShop\MyShop\obj\Debug\net5.0-windows\TaoDonHangWindow.g.cs
+C:\Users\dell\Desktop\21810012_MyShop\MyShop\obj\Debug\net5.0-windows\DonHangWindow.baml
+C:\Users\dell\Desktop\21810012_MyShop\MyShop\obj\Debug\net5.0-windows\TaoDonHangWindow.baml
+C:\Users\dell\Desktop\21810012_MyShop\MyShop\obj\Debug\net5.0-windows\CapNhatDonHangWindow.g.cs
+C:\Users\dell\Desktop\21810012_MyShop\MyShop\obj\Debug\net5.0-windows\CapNhatDonHangWindow.baml

@@ -7,6 +7,9 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="CapNhatDonHangWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="DonHangWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -15,6 +18,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="CapNhatDonHangWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="DonHangWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
