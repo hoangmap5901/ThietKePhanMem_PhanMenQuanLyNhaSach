@@ -9,14 +9,14 @@
         Title="Báo Cáo Window" Height="700" Width="800">
     <DockPanel>
         <TabControl DockPanel.Dock="Bottom" SelectionChanged="TabControl_SelectionChanged">
-            <TabItem Name="baoCaoDoanhThuTabItem" Header="Báo cáo doanh thu và các sản phảm bán chạy">
+            <TabItem Name="baoCaoDoanhThuSachTabItem" Header="Báo cáo doanh thu sách và các sách bán chạy">
                 <StackPanel Orientation="Vertical">
-                    <TextBlock Text="Báo Cáo Doanh Thu Và Các Sản Phẩm Bán Chạy" FontWeight="Bold" 
+                    <TextBlock Text="Báo Cáo Doanh Thu Sách Và Các Sách Bán Chạy" FontWeight="Bold" 
                    FontSize="25" HorizontalAlignment="Left" Width="593" Margin="120,20,0,0"/>
 
                     <TextBlock Text="Chọn tháng, năm báo cáo:"  
                    HorizontalAlignment="Left" Width="593" Margin="270,20,0,0" FontSize="20"/>
-                    
+
                     <StackPanel Orientation="Horizontal" Height="50" Margin="200,15,0,0">
                         <TextBlock Text="Tháng:" Margin="30,15,0,0"/>
                         <TextBox x:Name="thangBaoCaoDoanhThuTextBox" Text="{Binding ThangBaoCaoDoanhThu}" Padding="5,5,0,0" Margin="5,0,0,0" Width="100" Height="30"/>
@@ -25,14 +25,14 @@
                     </StackPanel>
                     <Button Content="Báo cáo" Width="80" Height="30" Margin="5,5,0,0" x:Name="baoCaoDoanhThuButton" Click="BaoCaoDoanhThuButton_Click"/>
 
-                    <lvc:CartesianChart Name="doanhThuChart" Height="200" Width="500" Margin="0,40,0,0" LegendLocation="Bottom"/>
+                    <lvc:CartesianChart Name="doanhThuSachChart" Height="200" Width="500" Margin="0,40,0,0" LegendLocation="Bottom"/>
                 </StackPanel>
             </TabItem>
 
-            <TabItem Header="Báo cáo sản phẩm và số lượng">
+            <TabItem Header="Báo cáo sách và số lượng bán tương ứng">
                 <StackPanel Orientation="Vertical">
-                    <TextBlock Text="Báo Cáo Sản Phẩm Và Số Lượng" FontWeight="Bold" 
-                   FontSize="25" HorizontalAlignment="Left" VerticalAlignment="Top" Width="394" Margin="210,20,0,0"/>
+                    <TextBlock Text="Báo Cáo Sách Và Số Lượng Bán Tương Ứng" FontWeight="Bold" 
+                   FontSize="25" HorizontalAlignment="Left" Width="534" Margin="150,20,0,0"/>
                 </StackPanel>
             </TabItem>
         </TabControl>

@@ -160,6 +160,7 @@ namespace MyShop
                 }
                 MessageBox.Show(messageGiamSoLuongSachBan);
 
+                db.Dispose();
                 DialogResult = true;
             }
         }

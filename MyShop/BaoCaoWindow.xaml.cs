@@ -31,7 +31,7 @@ namespace MyShop
 
         private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (baoCaoDoanhThuTabItem.IsSelected)
+            if (baoCaoDoanhThuSachTabItem.IsSelected)
             {
                 thangBaoCaoDoanhThuTextBox.DataContext = this;
                 namBaoCaoDoanhThuTextBox.DataContext = this;
@@ -41,20 +41,20 @@ namespace MyShop
 
                 donHangs = donHangs.OrderBy(u => u.NgayTao.Value.Year).ThenBy(u => u.NgayTao.Value.Month).ToList();
 
-                var doanhThuSeries = new List<int>();
+                var doanhThuSachSeries = new List<int>();
 
                 for (int i = 0; i < donHangs.Count; i++)
                 {
-                    doanhThuSeries.Add((int)donHangs[i].Tong);
+                    doanhThuSachSeries.Add((int)donHangs[i].Tong);
                 }
 
-                doanhThuChart.Series.Add(new LineSeries()
+                doanhThuSachChart.Series.Add(new LineSeries()
                 {
-                    Title = "Doanh thu tháng",
-                    Values = new ChartValues<int>(doanhThuSeries),
+                    Title = "Doanh thu sách",
+                    Values = new ChartValues<int>(doanhThuSachSeries),
                     Stroke = Brushes.Green,
-                    StrokeThickness = 2,
-                    Fill = new SolidColorBrush(Colors.Orange)
+                    Fill = new SolidColorBrush(Colors.Orange),
+                    StrokeDashArray = new DoubleCollection {2}
                 });
 
                 var dateAxisXDoanhThuChart = new List<string>();
@@ -64,12 +64,55 @@ namespace MyShop
                     dateAxisXDoanhThuChart.Add($"{donHangs[i].NgayTao.Value.Month}/{donHangs[i].NgayTao.Value.Year}");
                 }
 
-                doanhThuChart.AxisX.Add(new Axis()
+                doanhThuSachChart.AxisX.Add(new Axis()
                 {
                     Labels = new List<string>(dateAxisXDoanhThuChart)
                 });
 
+                // ---------------
 
+                var chiTietSachesBanChay = db.ChiTietDonHangs
+                    .GroupBy(x => x.SachId)
+                    .Select(u => new
+                    {
+                        SachId = u.Key,
+                        count = u.Count()
+                    });
+
+                chiTietSachesBanChay = chiTietSachesBanChay.OrderByDescending(u => u.count);
+
+                var sachesBanChay = new List<Sach>();
+
+                foreach (var i in chiTietSachesBanChay)
+                {
+                    if (sachesBanChay.Count == 5)
+                    {
+                        break;
+                    }
+                    var sach = db.Saches.FirstOrDefault(u => u.SachId == i.SachId);
+                    sachesBanChay.Add(sach);
+                    db.DisposeAsync();
+                }
+
+                var soLuongSachBanChaySeries = new List<int>();
+
+                foreach (var i in chiTietSachesBanChay)
+                {
+                    if (soLuongSachBanChaySeries.Count == 5)
+                    {
+                        break;
+                    }
+                    soLuongSachBanChaySeries.Add(i.count);
+                }
+
+                doanhThuSachChart.Series.Add(new ColumnSeries()
+                {
+                    Title = "Sách bán chạy",
+                    Values = new ChartValues<int>(soLuongSachBanChaySeries),
+                    Stroke = Brushes.Yellow,
+                    StrokeThickness = 2,
+                    Fill = new SolidColorBrush(Colors.Purple)
+                });
             }
 
            
