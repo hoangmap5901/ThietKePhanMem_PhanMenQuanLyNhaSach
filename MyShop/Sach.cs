@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 
 #nullable disable
 
 namespace MyShop
 {
-    public partial class Sach : INotifyPropertyChanged, ICloneable
+    public partial class Sach
     {
-        public Sach() 
+        public Sach()
         {
             ChiTietDonHangs = new HashSet<ChiTietDonHang>();
         }
@@ -23,11 +22,5 @@ namespace MyShop
 
         public virtual TheLoai TheLoai { get; set; }
         public virtual ICollection<ChiTietDonHang> ChiTietDonHangs { get; set; }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-        public object Clone()
-        {
-            return MemberwiseClone();
-        }
     }
 }

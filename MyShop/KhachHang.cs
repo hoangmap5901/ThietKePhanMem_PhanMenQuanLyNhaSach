@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 
 #nullable disable
 
 namespace MyShop
 {
-    public partial class KhachHang : INotifyPropertyChanged, ICloneable
+    public partial class KhachHang
     {
         public KhachHang()
         {
@@ -21,11 +20,5 @@ namespace MyShop
         public string ImagePath { get; set; }
 
         public virtual ICollection<DonHang> DonHangs { get; set; }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-        public object Clone()
-        {
-            return MemberwiseClone();
-        }
     }
 }

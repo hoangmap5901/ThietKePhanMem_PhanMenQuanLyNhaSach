@@ -48,7 +48,7 @@ namespace MyShop
                     doanhThuSachSeries.Add((int)donHangs[i].Tong);
                 }
 
-                doanhThuSachChart.Series.Add(new LineSeries()
+                doanhThuSachLineChart.Series.Add(new LineSeries()
                 {
                     Title = "Doanh thu sách",
                     Values = new ChartValues<int>(doanhThuSachSeries),
@@ -64,7 +64,7 @@ namespace MyShop
                     dateAxisXDoanhThuChart.Add($"{donHangs[i].NgayTao.Value.Month}/{donHangs[i].NgayTao.Value.Year}");
                 }
 
-                doanhThuSachChart.AxisX.Add(new Axis()
+                doanhThuSachLineChart.AxisX.Add(new Axis()
                 {
                     Labels = new List<string>(dateAxisXDoanhThuChart)
                 });
@@ -76,43 +76,78 @@ namespace MyShop
                     .Select(u => new
                     {
                         SachId = u.Key,
-                        count = u.Count()
+                        soLuong = u.Sum(v => v.SoLuong)
                     });
 
-                chiTietSachesBanChay = chiTietSachesBanChay.OrderByDescending(u => u.count);
+                chiTietSachesBanChay = chiTietSachesBanChay.OrderByDescending(u => u.soLuong);
 
-                var sachesBanChay = new List<Sach>();
-
-                foreach (var i in chiTietSachesBanChay)
-                {
-                    if (sachesBanChay.Count == 5)
-                    {
-                        break;
-                    }
-                    var sach = db.Saches.FirstOrDefault(u => u.SachId == i.SachId);
-                    sachesBanChay.Add(sach);
-                    db.DisposeAsync();
-                }
-
+                var tenSachesBanChay = new List<string>();
                 var soLuongSachBanChaySeries = new List<int>();
 
                 foreach (var i in chiTietSachesBanChay)
                 {
-                    if (soLuongSachBanChaySeries.Count == 5)
+                    if (tenSachesBanChay.Count == 3)
                     {
                         break;
                     }
-                    soLuongSachBanChaySeries.Add(i.count);
+                    var sach = db.Saches.FirstOrDefault(u => u.SachId == i.SachId);
+                    tenSachesBanChay.Add(sach.Ten);
+                    soLuongSachBanChaySeries.Add((int)i.soLuong);
                 }
 
-                doanhThuSachChart.Series.Add(new ColumnSeries()
+                //doanhThuSachLineChart.Series.Add(new ColumnSeries()
+                //{
+                //    Title = "Sách bán chạy",
+                //    Values = new ChartValues<int>(soLuongSachBanChaySeries),
+                //    Stroke = Brushes.Yellow,
+                //    StrokeThickness = 2,
+                //    Fill = new SolidColorBrush(Colors.Purple)
+                //});
+
+                for (int i = 0; i < tenSachesBanChay.Count; i++)
                 {
-                    Title = "Sách bán chạy",
-                    Values = new ChartValues<int>(soLuongSachBanChaySeries),
-                    Stroke = Brushes.Yellow,
-                    StrokeThickness = 2,
-                    Fill = new SolidColorBrush(Colors.Purple)
-                });
+                    soLuongSachPieChart.Series.Add(new ColumnSeries()
+                    {
+                        DataLabels = true,
+                        Title = tenSachesBanChay[i],
+                        Values = new ChartValues<int>() { soLuongSachBanChaySeries[i] },
+                    });
+                }
+
+            }
+
+            else if (baoCaoSoLuongSachTabItem.IsSelected)
+            {
+                var db = new MyShopDBContext();
+
+                var chiTietSaches = db.ChiTietDonHangs
+                  .GroupBy(x => x.SachId)
+                  .Select(u => new
+                  {
+                      SachId = u.Key,
+                      soLuong = u.Sum(v => v.SoLuong)
+                  });
+
+                var tenSaches = new List<string>();
+                var soLuongBanSaches = new List<int>();
+ 
+                foreach (var i in chiTietSaches)
+                {
+                    var sach = db.Saches.FirstOrDefault(u => u.SachId == i.SachId);
+                    tenSaches.Add(sach.Ten);
+                    soLuongBanSaches.Add((int)i.soLuong);
+                }
+
+                for (int i = 0; i < tenSaches.Count; i++)
+                {
+                    soLuongSachPieChart.Series.Add(new PieSeries()
+                    {
+                        DataLabels = true,
+                        Title = tenSaches[i],
+                        Values = new ChartValues<int>() { soLuongBanSaches[i] },
+                        LabelPoint = point => $"{point.Y} - {point.Participation:P1}"
+                    });
+                }
             }
 
            
@@ -120,6 +155,11 @@ namespace MyShop
         }
 
         private void BaoCaoDoanhThuButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BaoCaoSoLuongSachButton_Click(object sender, RoutedEventArgs e)
         {
 
         }

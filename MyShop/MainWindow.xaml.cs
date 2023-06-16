@@ -254,6 +254,5 @@ namespace MyShop
             var baoCaoScreen = new BaoCaoWindow();
             baoCaoScreen.Show();
         }
-
     }
 }

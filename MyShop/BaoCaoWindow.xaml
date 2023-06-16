@@ -25,14 +25,24 @@
                     </StackPanel>
                     <Button Content="Báo cáo" Width="80" Height="30" Margin="5,5,0,0" x:Name="baoCaoDoanhThuButton" Click="BaoCaoDoanhThuButton_Click"/>
 
-                    <lvc:CartesianChart Name="doanhThuSachChart" Height="200" Width="500" Margin="0,40,0,0" LegendLocation="Bottom"/>
+                    <lvc:CartesianChart Name="doanhThuSachLineChart" Height="200" Width="500" Margin="0,40,0,0" LegendLocation="Bottom"/>
                 </StackPanel>
             </TabItem>
 
-            <TabItem Header="Báo cáo sách và số lượng bán tương ứng">
+            <TabItem Name="baoCaoSoLuongSachTabItem" Header="Báo cáo sách và số lượng bán tương ứng">
                 <StackPanel Orientation="Vertical">
                     <TextBlock Text="Báo Cáo Sách Và Số Lượng Bán Tương Ứng" FontWeight="Bold" 
                    FontSize="25" HorizontalAlignment="Left" Width="534" Margin="150,20,0,0"/>
+
+                    <StackPanel Orientation="Horizontal" Height="50" Margin="200,15,0,0">
+                        <TextBlock Text="Tháng:" Margin="30,15,0,0"/>
+                       <TextBox x:Name="thangBaoCaoSoLuongSachTextBox" Text="{Binding ThangBaoCaoSoLuongSach}" Padding="5,5,0,0" Margin="5,0,0,0" Width="100" Height="30"/>
+                        <TextBlock Text="Năm:" Margin="50,15,0,0"/>
+                        <TextBox x:Name="namBaoCaoSoLuongSachTextBox" Text="{Binding NamBaoCaoSoLuongSach}" Padding="5,5,0,0" Margin="5,0,0,0" Width="100" Height="30"/>
+                    </StackPanel>
+                    <Button Content="Báo cáo" Width="80" Height="30" Margin="5,5,0,0" x:Name="baoCaoSoLuongSachButton" Click="BaoCaoSoLuongSachButton_Click"/>
+
+                    <lvc:PieChart Name="soLuongSachPieChart" Height="200" Width="500" Margin="0,40,0,0" LegendLocation="Bottom"/>
                 </StackPanel>
             </TabItem>
         </TabControl>
