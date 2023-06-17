@@ -28,7 +28,7 @@ namespace MyShop
         int _totalItems;
         int _numberOfItemsCurrentPage;
         int _currentPage;
-        int _rowsPerPage = 7;
+        int _rowsPerPage = 12;
         int _totalPages;
 
         public static readonly DependencyProperty TotalItemsProperty =

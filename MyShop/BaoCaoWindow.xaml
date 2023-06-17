@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         Title="Báo Cáo Window" Height="900" Width="800">
     <DockPanel>
-        <TabControl DockPanel.Dock="Bottom" SelectionChanged="TabControl_SelectionChanged">
+        <TabControl Name="baoCaoTabControl" DockPanel.Dock="Bottom" SelectionChanged="TabControl_SelectionChanged">
             <TabItem Name="baoCaoDoanhThuSachTabItem" Header="Báo cáo doanh thu sách và các sách bán chạy">
                 <StackPanel Orientation="Vertical">
                     <TextBlock Text="Báo Cáo Doanh Thu Sách Và Các Sách Bán Chạy" FontWeight="Bold" 
@@ -36,9 +36,9 @@
 
                     <StackPanel Orientation="Horizontal" Height="50" Margin="200,15,0,0">
                         <TextBlock Text="Tháng:" Margin="30,15,0,0"/>
-                       <TextBox x:Name="thangBaoCaoSoLuongSachTextBox" Text="{Binding ThangBaoCaoSoLuongSach}" Padding="5,5,0,0" Margin="5,0,0,0" Width="100" Height="30"/>
+                       <TextBox x:Name="thangBaoCaoSoLuongSachTextBox" Padding="5,5,0,0" Margin="5,0,0,0" Width="100" Height="30"/>
                         <TextBlock Text="Năm:" Margin="50,15,0,0"/>
-                        <TextBox x:Name="namBaoCaoSoLuongSachTextBox" Text="{Binding NamBaoCaoSoLuongSach}" Padding="5,5,0,0" Margin="5,0,0,0" Width="100" Height="30"/>
+                        <TextBox x:Name="namBaoCaoSoLuongSachTextBox" Padding="5,5,0,0" Margin="5,0,0,0" Width="100" Height="30"/>
                     </StackPanel>
                     <Button Content="Báo cáo" Width="80" Height="30" Margin="5,5,0,0" x:Name="baoCaoSoLuongSachButton" Click="BaoCaoSoLuongSachButton_Click"/>
 
