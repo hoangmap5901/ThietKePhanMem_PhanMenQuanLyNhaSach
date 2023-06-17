@@ -27,12 +27,118 @@ namespace MyShop
         public static readonly DependencyProperty UserNameLoginWelcomeProperty =
   DependencyProperty.Register("UserNameLoginWelcome", typeof(string), typeof(Window), new PropertyMetadata(null));
 
+        public static readonly DependencyProperty TongSachProperty =
+        DependencyProperty.Register("TongSach", typeof(int), typeof(Window), new PropertyMetadata(null));
+
+        public static readonly DependencyProperty SoLuongDonHangProperty =
+       DependencyProperty.Register("SoLuongDonHangMoi", typeof(int), typeof(Window), new PropertyMetadata(null));
+
+        public static readonly DependencyProperty ImagePath1Property =
+         DependencyProperty.Register("ImagePath1", typeof(string), typeof(Window), new PropertyMetadata(null));
+
+        public static readonly DependencyProperty ImagePath2Property =
+         DependencyProperty.Register("ImagePath2", typeof(string), typeof(Window), new PropertyMetadata(null));
+
+        public static readonly DependencyProperty ImagePath3Property =
+         DependencyProperty.Register("ImagePath3", typeof(string), typeof(Window), new PropertyMetadata(null));
+
+        public static readonly DependencyProperty ImagePath4Property =
+         DependencyProperty.Register("ImagePath4", typeof(string), typeof(Window), new PropertyMetadata(null));
+
+        public static readonly DependencyProperty ImagePath5Property =
+         DependencyProperty.Register("ImagePath5", typeof(string), typeof(Window), new PropertyMetadata(null));
+
+        public static readonly DependencyProperty SoLuong1Property =
+     DependencyProperty.Register("SoLuong1", typeof(int), typeof(Window), new PropertyMetadata(null));
+
+        public static readonly DependencyProperty SoLuong2Property =
+    DependencyProperty.Register("SoLuong2", typeof(int), typeof(Window), new PropertyMetadata(null));
+
+        public static readonly DependencyProperty SoLuong3Property =
+    DependencyProperty.Register("SoLuong3", typeof(int), typeof(Window), new PropertyMetadata(null));
+
+        public static readonly DependencyProperty SoLuong4Property =
+    DependencyProperty.Register("SoLuong4", typeof(int), typeof(Window), new PropertyMetadata(null));
+
+        public static readonly DependencyProperty SoLuong5Property =
+    DependencyProperty.Register("SoLuong5", typeof(int), typeof(Window), new PropertyMetadata(null));
         public string UserNameLoginWelcome
         {
             get { return (string)GetValue(UserNameLoginWelcomeProperty); }
             set { SetValue(UserNameLoginWelcomeProperty, value); }
         }
 
+        public int TongSach
+        {
+            get { return (int)GetValue(TongSachProperty); }
+            set { SetValue(TongSachProperty, value); }
+        }
+
+        public int SoLuongDonHangMoi
+        {
+            get { return (int)GetValue(SoLuongDonHangProperty); }
+            set { SetValue(SoLuongDonHangProperty, value); }
+        }
+
+        public string ImagePath1
+        {
+            get { return (string)GetValue(ImagePath1Property); }
+            set { SetValue(ImagePath1Property, value); }
+        }
+
+        public string ImagePath2
+        {
+            get { return (string)GetValue(ImagePath2Property); }
+            set { SetValue(ImagePath2Property, value); }
+        }
+
+        public string ImagePath3
+        {
+            get { return (string)GetValue(ImagePath3Property); }
+            set { SetValue(ImagePath3Property, value); }
+        }
+
+        public string ImagePath4
+        {
+            get { return (string)GetValue(ImagePath4Property); }
+            set { SetValue(ImagePath4Property, value); }
+        }
+
+        public string ImagePath5
+        {
+            get { return (string)GetValue(ImagePath5Property); }
+            set { SetValue(ImagePath5Property, value); }
+        }
+
+        public int SoLuong1
+        {
+            get { return (int)GetValue(SoLuong1Property); }
+            set { SetValue(SoLuong1Property, value); }
+        }
+
+        public int SoLuong2
+        {
+            get { return (int)GetValue(SoLuong2Property); }
+            set { SetValue(SoLuong2Property, value); }
+        }
+
+        public int SoLuong3
+        {
+            get { return (int)GetValue(SoLuong3Property); }
+            set { SetValue(SoLuong3Property, value); }
+        }
+
+        public int SoLuong4
+        {
+            get { return (int)GetValue(SoLuong4Property); }
+            set { SetValue(SoLuong4Property, value); }
+        }
+
+        public int SoLuong5
+        {
+            get { return (int)GetValue(SoLuong5Property); }
+            set { SetValue(SoLuong5Property, value); }
+        }
         public MainWindow()
         {
             InitializeComponent();
@@ -253,6 +359,73 @@ namespace MyShop
         {
             var baoCaoScreen = new BaoCaoWindow();
             baoCaoScreen.Show();
+        }
+
+        private void DashboardButton_Click(object sender, RoutedEventArgs e)
+        {
+            var db = new MyShopDBContext();
+
+            var saches = db.Saches.ToList();
+            TongSach = saches.Count();
+            tongSachTextBox1.Visibility = Visibility.Visible;
+            tongSachTextBox2.Visibility = Visibility.Visible;
+
+            var dateNow = DateTime.Now;
+            var donHangMoi = db.DonHangs.Where(u => u.NgayTao.Value.Month == dateNow.Month && u.NgayTao.Value.Year == dateNow.Year).ToList();
+            SoLuongDonHangMoi = donHangMoi.Count();
+            donHangMoiTextBox1.Visibility = Visibility.Visible;
+            donHangMoiTextBox2.Visibility = Visibility.Visible;
+
+            topNamSachSapHetHangextBox.Visibility = Visibility.Visible;
+            var sachesTopNamSapHetHang = db.Saches.OrderBy(u => u.SoLuong).ToList();
+            for (int i = 0; i < 5; i++)
+            {
+                switch(i)
+                {
+                    case 0:
+                        ImagePath1 = sachesTopNamSapHetHang[i].ImagePath;
+                        SoLuong1 = (int)sachesTopNamSapHetHang[i].SoLuong;
+                        soThuTu1TextBox.Visibility = Visibility.Visible;
+                        imagePath1Box.Visibility = Visibility.Visible;
+                        soLuong1TextBox.Visibility = Visibility.Visible;
+                        cuon1TextBox.Visibility = Visibility.Visible;
+                        break;
+                    case 1:
+                        ImagePath2 = sachesTopNamSapHetHang[i].ImagePath;
+                        SoLuong2 = (int)sachesTopNamSapHetHang[i].SoLuong;
+                        soThuTu2TextBox.Visibility = Visibility.Visible;
+                        imagePath2Box.Visibility = Visibility.Visible;
+                        soLuong2TextBox.Visibility = Visibility.Visible;
+                        cuon2TextBox.Visibility = Visibility.Visible;
+                        break;
+                    case 2:
+                        ImagePath3 = sachesTopNamSapHetHang[i].ImagePath;
+                        SoLuong3 = (int)sachesTopNamSapHetHang[i].SoLuong;
+                        soThuTu3TextBox.Visibility = Visibility.Visible;
+                        imagePath3Box.Visibility = Visibility.Visible;
+                        soLuong3TextBox.Visibility = Visibility.Visible;
+                        cuon3TextBox.Visibility = Visibility.Visible;
+                        break;
+                    case 3:
+                        ImagePath4 = sachesTopNamSapHetHang[i].ImagePath;
+                        SoLuong4 = (int)sachesTopNamSapHetHang[i].SoLuong;
+                        soThuTu4TextBox.Visibility = Visibility.Visible;
+                        imagePath4Box.Visibility = Visibility.Visible;
+                        soLuong4TextBox.Visibility = Visibility.Visible;
+                        cuon4TextBox.Visibility = Visibility.Visible;
+                        break;
+                    case 4:
+                        ImagePath5 = sachesTopNamSapHetHang[i].ImagePath;
+                        SoLuong5 = (int)sachesTopNamSapHetHang[i].SoLuong;
+                        soThuTu5TextBox.Visibility = Visibility.Visible;
+                        imagePath5Box.Visibility = Visibility.Visible;
+                        soLuong5TextBox.Visibility = Visibility.Visible;
+                        cuon5TextBox.Visibility = Visibility.Visible;
+                        break;
+                    default:
+                        break;
+                }
+            }
         }
     }
 }

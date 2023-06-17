@@ -104,15 +104,24 @@ namespace MyShop
                 //    Fill = new SolidColorBrush(Colors.Purple)
                 //});
 
-                for (int i = 0; i < tenSachesBanChay.Count; i++)
+                //for (int i = 0; i < tenSachesBanChay.Count; i++)
+                //{
+                //    soLuongSachPieChart.Series.Add(new ColumnSeries()
+                //    {
+                //        DataLabels = true,
+                //        Title = tenSachesBanChay[i],
+                //        Values = new ChartValues<int>() { soLuongSachBanChaySeries[i] },
+                //    });
+                //}
+
+                doanhThuSachLineChart.Series.Add(new LineSeries()
                 {
-                    soLuongSachPieChart.Series.Add(new ColumnSeries()
-                    {
-                        DataLabels = true,
-                        Title = tenSachesBanChay[i],
-                        Values = new ChartValues<int>() { soLuongSachBanChaySeries[i] },
-                    });
-                }
+                    Title = "Doanh thu sách",
+                    Values = new ChartValues<int>(doanhThuSachSeries),
+                    Stroke = Brushes.Green,
+                    Fill = new SolidColorBrush(Colors.Orange),
+                    StrokeDashArray = new DoubleCollection { 2 }
+                });
 
             }
 

@@ -84,7 +84,7 @@
                     <TextBlock Text="Đến ngày:" Margin="30,15,0,0"/>
                     <DatePicker Name="denNgayDatePicker" Margin="30"></DatePicker>
 
-                    <Button Content="Tìm kiếm" Width="80" Height="30" Margin="5,5,0,0" x:Name="timKiemButton" Click="timKiemButton_Click"/>
+                    <Button Content="Tìm kiếm" Width="80" Height="30" Margin="5,5,0,0" x:Name="timKiemButton" Click="TimKiemButton_Click"/>
                 </StackPanel>
             </StackPanel>
 

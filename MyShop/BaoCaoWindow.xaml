@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:MyShop"
         xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
         mc:Ignorable="d"
-        Title="Báo Cáo Window" Height="700" Width="800">
+        Title="Báo Cáo Window" Height="900" Width="800">
     <DockPanel>
         <TabControl DockPanel.Dock="Bottom" SelectionChanged="TabControl_SelectionChanged">
             <TabItem Name="baoCaoDoanhThuSachTabItem" Header="Báo cáo doanh thu sách và các sách bán chạy">
@@ -42,7 +42,7 @@
                     </StackPanel>
                     <Button Content="Báo cáo" Width="80" Height="30" Margin="5,5,0,0" x:Name="baoCaoSoLuongSachButton" Click="BaoCaoSoLuongSachButton_Click"/>
 
-                    <lvc:PieChart Name="soLuongSachPieChart" Height="200" Width="500" Margin="0,40,0,0" LegendLocation="Bottom"/>
+                    <lvc:PieChart Name="soLuongSachPieChart" Height="550" Width="500" Margin="0,20,0,0" LegendLocation="Bottom"/>
                 </StackPanel>
             </TabItem>
         </TabControl>

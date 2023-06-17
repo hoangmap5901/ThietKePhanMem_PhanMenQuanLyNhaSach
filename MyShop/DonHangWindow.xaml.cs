@@ -307,7 +307,7 @@ namespace MyShop
             }
         }
 
-        private void timKiemButton_Click(object sender, RoutedEventArgs e)
+        private void TimKiemButton_Click(object sender, RoutedEventArgs e)
         {
             _timKiemClick = true;
             UpdateDataSource(true);
