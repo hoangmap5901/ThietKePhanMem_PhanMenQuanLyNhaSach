@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET5_0;NETCOREAPP
 C:\Users\dell\Desktop\21810012_MyShop\MyShop\App.xaml
-15612136773
+16773066559
 
-301922171676
+321601473189
 218-1672066703
-BaoCaoWindow.xaml;CapNhatDonHangWindow.xaml;CapNhatKhachHangWindow.xaml;CapNhatSachWindow.xaml;CapNhatTheLoaiWindow.xaml;DangNhapWindow.xaml;DonHangWindow.xaml;KhachHangWindow.xaml;MainWindow.xaml;SachWindow.xaml;TaoDonHangWindow.xaml;TheLoaiSachWindow.xaml;ThemKhachHangWindow.xaml;ThemSachWindow.xaml;ThemTheLoaiWindow.xaml;
+BaoCaoWindow.xaml;CapNhatDonHangWindow.xaml;CapNhatKhachHangWindow.xaml;CapNhatSachWindow.xaml;CapNhatTheLoaiWindow.xaml;DangNhapWindow.xaml;DonHangWindow.xaml;KhachHangWindow.xaml;MainWindow.xaml;SachWindow.xaml;TaoDonHangWindow.xaml;ThayDoiQuyDinhWindow.xaml;TheLoaiSachWindow.xaml;ThemKhachHangWindow.xaml;ThemSachWindow.xaml;ThemTheLoaiWindow.xaml;
 
-True
+False
 

@@ -304,3 +304,5 @@ C:\Users\dell\Desktop\21810012_MyShop\MyShop\bin\Debug\net5.0-windows\Images\Kha
 C:\Users\dell\Desktop\21810012_MyShop\MyShop\bin\Debug\net5.0-windows\Images\KhachHang\avatar_03.jpg
 C:\Users\dell\Desktop\21810012_MyShop\MyShop\bin\Debug\net5.0-windows\Images\KhachHang\avatar_04.jpg
 C:\Users\dell\Desktop\21810012_MyShop\MyShop\bin\Debug\net5.0-windows\Images\KhachHang\avatar_05.jpg
+C:\Users\dell\Desktop\21810012_MyShop\MyShop\obj\Debug\net5.0-windows\ThayDoiQuyDinhWindow.g.cs
+C:\Users\dell\Desktop\21810012_MyShop\MyShop\obj\Debug\net5.0-windows\ThayDoiQuyDinhWindow.baml

@@ -24,6 +24,12 @@ namespace MyShop
     /// </summary>
     public partial class MainWindow : Window
     {
+        public ThamSo ThayDoiQuyDinh { get; set; } = new ThamSo();
+
+        public int _soLuongSachNhapToiThieu;
+        public int _soLuongSachTonToiDaDeNhapSach;
+        public int _soLuongSachTonToiThieuSauKhiBan;
+
         public static readonly DependencyProperty UserNameLoginWelcomeProperty =
   DependencyProperty.Register("UserNameLoginWelcome", typeof(string), typeof(Window), new PropertyMetadata(null));
 
@@ -152,6 +158,13 @@ namespace MyShop
             {
                 UserNameLoginWelcome = screen._usernameLoginWelcome;
                 this.Show();
+                ThayDoiQuyDinh.SoLuongSachNhapToiThieu = 150;
+                ThayDoiQuyDinh.SoLuongSachTonToiDaDeNhapSach = 300;
+                ThayDoiQuyDinh.SoLuongSachTonToiThieuSauKhiBan = 20;
+
+                _soLuongSachNhapToiThieu = 150;
+                _soLuongSachTonToiDaDeNhapSach = 300;
+                _soLuongSachTonToiThieuSauKhiBan = 20;
             }
         }
 
@@ -361,6 +374,23 @@ namespace MyShop
             baoCaoScreen.Show();
         }
 
+        private void ThayDoiQuyDinhButton_Click(object sender, RoutedEventArgs e)
+        {
+            var thayDoiQuyDinhScreen = new ThayDoiQuyDinhWindow(ThayDoiQuyDinh);
+            if (thayDoiQuyDinhScreen.ShowDialog() == true)
+            {
+                var thayDoiQuyDinhCapNhat = (ThamSo)thayDoiQuyDinhScreen.ThayDoiQuyDinh.Clone();
+
+                ThayDoiQuyDinh.SoLuongSachNhapToiThieu = thayDoiQuyDinhCapNhat.SoLuongSachNhapToiThieu;
+                ThayDoiQuyDinh.SoLuongSachTonToiDaDeNhapSach = thayDoiQuyDinhCapNhat.SoLuongSachTonToiDaDeNhapSach;
+                ThayDoiQuyDinh.SoLuongSachTonToiThieuSauKhiBan = thayDoiQuyDinhCapNhat.SoLuongSachTonToiThieuSauKhiBan;
+
+                _soLuongSachNhapToiThieu = thayDoiQuyDinhCapNhat.SoLuongSachNhapToiThieu;
+                _soLuongSachTonToiDaDeNhapSach = thayDoiQuyDinhCapNhat.SoLuongSachTonToiDaDeNhapSach;
+                _soLuongSachTonToiThieuSauKhiBan = thayDoiQuyDinhCapNhat.SoLuongSachTonToiThieuSauKhiBan;
+            }
+        }
+
         private void DashboardButton_Click(object sender, RoutedEventArgs e)
         {
             var db = new MyShopDBContext();
@@ -427,5 +457,7 @@ namespace MyShop
                 }
             }
         }
+
+
     }
 }
