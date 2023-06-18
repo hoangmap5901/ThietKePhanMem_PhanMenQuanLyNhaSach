@@ -30,6 +30,7 @@ namespace MyShop
         int _currentPage;
         int _rowsPerPage = 12;
         int _totalPages;
+        bool _timSachHetHanClick = false;
 
         public static readonly DependencyProperty TotalItemsProperty =
           DependencyProperty.Register("TotalItems2", typeof(int), typeof(Window), new PropertyMetadata(null));
@@ -123,8 +124,8 @@ namespace MyShop
             theLoaiSachComboBox.ItemsSource = theLoais;
 
             theLoaiSachComboBox.SelectedIndex = 0;
-            _theLoaiSachIDComboBox = 0;
-            _theLoaiSachSelectedIndexComboBox = 0;
+            //_theLoaiSachIDComboBox = 1;
+            //_theLoaiSachSelectedIndexComboBox = 0;
 
             UpdateDataSource();
             UpdatePagingInfo();
@@ -133,42 +134,35 @@ namespace MyShop
 
         void UpdateDataSource(bool timSachSapHetHang = false)
         {
-            theLoaiSachComboBox.SelectedIndex = _theLoaiSachSelectedIndexComboBox;
+            //theLoaiSachComboBox.SelectedIndex = _theLoaiSachSelectedIndexComboBox;
             var db = new MyShopDBContext();
-            List<Sach> saches;
+            var saches = db.Saches.ToList();
 
-            if (_theLoaiSachIDComboBox == 0)
+            if (_theLoaiSachSelectedIndexComboBox != 0)
             {
-                saches = db.Saches.ToList();
+                saches = saches.Where(sach => sach.TheLoaiId == _theLoaiSachIDComboBox).ToList();
             }
-            else
-            {
-                saches = db.Saches.Where(sach => sach.TheLoaiId == _theLoaiSachIDComboBox).ToList();
-            }
+
 
             if (timSachSapHetHang == true)
             {
-                saches = db.Saches.Where(sach => sach.SoLuong < 5).ToList();
+                saches = saches.Where(sach => sach.SoLuong < 5).ToList();
             }
 
-            var sachesKeyword = saches.Where(sach => sach.Ten.Contains(Keyword));
+            saches = saches.Where(sach => sach.Ten.Contains(Keyword)).ToList();
 
-            List<Sach> sachesTrongKhoangGia;
             if (GiaMin != "" && GiaMax != "")
             {
                 int giaMin = int.Parse(GiaMin);
                 int giaMax = int.Parse(GiaMax);
-                sachesTrongKhoangGia = sachesKeyword.Where(sach => sach.Gia >= giaMin && sach.Gia <= giaMax).ToList();
-                _totalItems = sachesTrongKhoangGia.Count();
+                saches = saches.Where(sach => sach.Gia >= giaMin && sach.Gia <= giaMax).ToList();
             }
-            else
-            {
-                sachesTrongKhoangGia = sachesKeyword.ToList();
-            }
+
+            _totalItems = saches.Count();
             TotalItems2 = _totalItems;
 
 
-            var sachesRowsPerPage = sachesTrongKhoangGia.Skip((_currentPage - 1) * RowsPerPage).Take(RowsPerPage);
+            var sachesRowsPerPage = saches.Skip((_currentPage - 1) * RowsPerPage).Take(RowsPerPage);
             _numberOfItemsCurrentPage = sachesRowsPerPage.Count();
             NumberOfItemsCurrentPage2 = _numberOfItemsCurrentPage;
 
@@ -197,11 +191,15 @@ namespace MyShop
                 if (theLoais[i].TheLoaiId == _theLoaiSachIDComboBox)
                 {
                     _theLoaiSachSelectedIndexComboBox = i;
-                    UpdateDataSource();
-                    UpdatePagingInfo();
-                    pagingComboBox.SelectedIndex = 0;
+                    break;
+                    //UpdatePagingInfo();
+                    //pagingComboBox.SelectedIndex = 0;
                 }
             }
+
+            UpdateDataSource();
+            UpdatePagingInfo();
+            pagingComboBox.SelectedIndex = 0;
         }
 
         private void PagingComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -211,7 +209,14 @@ namespace MyShop
             if (i >= 0)
             {
                 _currentPage = i + 1;
-                UpdateDataSource();
+                if (_timSachHetHanClick == true)
+                {
+                    UpdateDataSource(true);
+                }
+                else
+                {
+                    UpdateDataSource();
+                }
             }
         }
 
@@ -334,9 +339,11 @@ namespace MyShop
 
         private void TimSachHetHanButton_Click(object sender, RoutedEventArgs e)
         {
+            _timSachHetHanClick = true;
             UpdateDataSource(true);
             UpdatePagingInfo();
             pagingComboBox.SelectedIndex = 0;
+            _timSachHetHanClick = false;
         }
     }
 }
