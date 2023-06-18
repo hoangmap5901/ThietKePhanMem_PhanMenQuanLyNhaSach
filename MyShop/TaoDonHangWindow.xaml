@@ -42,8 +42,8 @@
         <DatePicker Name="ngayTaoDatePicker" Canvas.Left="250" Canvas.Top="274" HorizontalAlignment="Left" VerticalAlignment="Center" Width="378"></DatePicker>
 
         <TextBlock Text="Sách" Canvas.Left="110" Canvas.Top="332" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <ComboBox Name="sachDonHangComboBox" Width="380" Height="26" VerticalAlignment="Center" 
-                  Canvas.Left="246" Canvas.Top="324" HorizontalAlignment="Left">
+        <ComboBox Name="sachDonHangComboBox" Width="380" Height="26" VerticalAlignment="Top" 
+                  Canvas.Left="246" Canvas.Top="328" HorizontalAlignment="Center">
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal" Margin="15,5,0,0">
@@ -52,8 +52,9 @@
                         <TextBlock Text="{Binding Path=TacGia}" Height="20"/>
                         <TextBlock Text=" - " Height="20"/>
                         <TextBlock Text="{Binding Path=Gia}" Height="20"/>
-                        <TextBlock Text=" - " Height="20"/>
+                        <TextBlock Text=" đồng - " Height="20"/>
                         <TextBlock Text="{Binding Path=SoLuong}" Height="20"/>
+                        <TextBlock Text=" cuốn" Height="20"/>
                     </StackPanel>
                 </DataTemplate>
             </ComboBox.ItemTemplate>

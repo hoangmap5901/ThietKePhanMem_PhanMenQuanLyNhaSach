@@ -72,7 +72,7 @@ namespace MyShop
                     {
 
                         donHangs = donHangs.Where(u => u.NgayTao.Value.Month == thangBaoCaoDoanhThu && u.NgayTao.Value.Year == namBaoCaoDoanhThu).ToList();
-                        donHangs = donHangs.OrderBy(u => u.NgayTao.Value.Year).ThenBy(u => u.NgayTao.Value.Month).ToList();
+                        donHangs = donHangs.OrderBy(u => u.NgayTao.Value.Year).ThenBy(u => u.NgayTao.Value.Month).ThenBy(u => u.NgayTao.Value.Day).ToList();
 
                         var doanhThuSachSeries = new List<int>();
 
@@ -153,7 +153,7 @@ namespace MyShop
                     else if (NamBaoCaoDoanhThu != "")
                     {
                         donHangs = donHangs.Where(u => u.NgayTao.Value.Year == namBaoCaoDoanhThu).ToList();
-                        donHangs = donHangs.OrderBy(u => u.NgayTao.Value.Year).ToList();
+                        donHangs = donHangs.OrderBy(u => u.NgayTao.Value.Year).ThenBy(u => u.NgayTao.Value.Month).ThenBy(u => u.NgayTao.Value.Day).ToList();
 
                         var doanhThuSachSeries = new List<int>();
 
