@@ -350,7 +350,7 @@ namespace MyShop
 
         private void QuanLiDonHangButton_Click(object sender, RoutedEventArgs e)
         {
-            var donHangScreen = new DonHangWindow();
+            var donHangScreen = new DonHangWindow(ThayDoiQuyDinh);
             donHangScreen.Show();
         }
 

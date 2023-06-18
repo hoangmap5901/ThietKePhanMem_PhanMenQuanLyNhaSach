@@ -24,6 +24,7 @@ namespace MyShop
         public int SoLuong { get => _soLuong; set => _soLuong = value; }
         int _soLuong = 0;
         public DonHang NewDonHang { get; set; } = new DonHang();
+        public ThamSo ThayDoiQuyDinh { get; set; } = new ThamSo();
         List<Sach> _sachesThem = new List<Sach>();
         List<ChiTietDonHang> _chiTietDonHangs = new List<ChiTietDonHang>();
 
@@ -36,9 +37,14 @@ namespace MyShop
             set { SetValue(TongProperty, value); }
         }
 
-        public TaoDonHangWindow()
+        public TaoDonHangWindow(ThamSo data)
         {
             InitializeComponent();
+
+            ThayDoiQuyDinh.SoLuongSachNhapToiThieu = data.SoLuongSachNhapToiThieu;
+            ThayDoiQuyDinh.SoLuongSachTonToiDaDeNhapSach = data.SoLuongSachTonToiDaDeNhapSach;
+            ThayDoiQuyDinh.SoLuongSachTonToiThieuSauKhiBan = data.SoLuongSachTonToiThieuSauKhiBan;
+
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)

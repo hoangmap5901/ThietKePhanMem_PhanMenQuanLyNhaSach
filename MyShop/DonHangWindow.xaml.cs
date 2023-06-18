@@ -25,6 +25,7 @@ namespace MyShop
         int _totalPages;
         int _rowsPerPage = 5;
         bool _timKiemClick = false;
+        public ThamSo ThayDoiQuyDinh { get; set; } = new ThamSo();
         public static readonly DependencyProperty TotalItemsProperty =
          DependencyProperty.Register("TotalItems3", typeof(int), typeof(Window), new PropertyMetadata(null));
 
@@ -123,9 +124,14 @@ namespace MyShop
             get { return (int)GetValue(TongProperty); }
             set { SetValue(TongProperty, value); }
         }
-        public DonHangWindow()
+        public DonHangWindow(ThamSo data)
         {
             InitializeComponent();
+
+            ThayDoiQuyDinh.SoLuongSachNhapToiThieu = data.SoLuongSachNhapToiThieu;
+            ThayDoiQuyDinh.SoLuongSachTonToiDaDeNhapSach = data.SoLuongSachTonToiDaDeNhapSach;
+            ThayDoiQuyDinh.SoLuongSachTonToiThieuSauKhiBan = data.SoLuongSachTonToiThieuSauKhiBan;
+
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -194,7 +200,7 @@ namespace MyShop
         private void TaoDonHangButton_Click(object sender, RoutedEventArgs e)
         {
             int pageIndex = pagingComboBox.SelectedIndex;
-            var screen = new TaoDonHangWindow();
+            var screen = new TaoDonHangWindow(ThayDoiQuyDinh);
             int numberOfItemsCurrentPagePrev = _numberOfItemsCurrentPage;
 
             if (screen.ShowDialog() == true)
