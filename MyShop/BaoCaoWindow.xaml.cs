@@ -94,7 +94,7 @@ namespace MyShop
 
                         for (int i = 0; i < donHangs.Count; i++)
                         {
-                            dateAxisXDoanhThuChart.Add($"{donHangs[i].NgayTao.Value.Month}/{donHangs[i].NgayTao.Value.Year}");
+                            dateAxisXDoanhThuChart.Add($"{donHangs[i].NgayTao.Value.Day}/{donHangs[i].NgayTao.Value.Month}/{donHangs[i].NgayTao.Value.Year}");
                         }
 
                         doanhThuSachLineChart.AxisX.Add(new Axis()
@@ -175,7 +175,7 @@ namespace MyShop
 
                         for (int i = 0; i < donHangs.Count; i++)
                         {
-                            dateAxisXDoanhThuChart.Add($"{donHangs[i].NgayTao.Value.Year}");
+                            dateAxisXDoanhThuChart.Add($"{donHangs[i].NgayTao.Value.Day}/{donHangs[i].NgayTao.Value.Month}/{donHangs[i].NgayTao.Value.Year}");
                         }
 
                         doanhThuSachLineChart.AxisX.Add(new Axis()
