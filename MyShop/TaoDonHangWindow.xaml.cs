@@ -86,32 +86,57 @@ namespace MyShop
             }
             else
             {
-                _chiTietDonHangs.Add(new ChiTietDonHang()
+                if (SoLuong >= ThayDoiQuyDinh.SoLuongSachNhapToiThieu && sachChon.SoLuong >= 0 && sachChon.SoLuong <= ThayDoiQuyDinh.SoLuongSachTonToiDaDeNhapSach && (sachChon.SoLuong - SoLuong) >= ThayDoiQuyDinh.SoLuongSachTonToiThieuSauKhiBan)
                 {
-                    SachId = sachChon.SachId,
-                    Gia = sachChon.Gia,
-                    SoLuong = SoLuong,
-                    Tong = sachChon.Gia * SoLuong
-                });
+                    _chiTietDonHangs.Add(new ChiTietDonHang()
+                    {
+                        SachId = sachChon.SachId,
+                        Gia = sachChon.Gia,
+                        SoLuong = SoLuong,
+                        Tong = sachChon.Gia * SoLuong
+                    });
 
-                _sachesThem.Add(new Sach()
+                    _sachesThem.Add(new Sach()
+                    {
+                        SachId = sachChon.SachId,
+                        TheLoaiId = sachChon.TheLoaiId,
+                        Ten = sachChon.Ten,
+                        Gia = sachChon.Gia,
+                        SoLuong = SoLuong,
+                        TacGia = sachChon.TacGia,
+                        ImagePath = sachChon.ImagePath
+                    });
+
+                    sachDataGrid.ItemsSource = _sachesThem.ToList();
+
+                    Tong2 = 0;
+
+                    for (int i = 0; i < _chiTietDonHangs.Count; i++)
+                    {
+                        Tong2 += (int)_chiTietDonHangs[i].Tong;
+                    }
+                }
+                else
                 {
-                    SachId = sachChon.SachId,
-                    TheLoaiId = sachChon.TheLoaiId,
-                    Ten = sachChon.Ten,
-                    Gia = sachChon.Gia,
-                    SoLuong = SoLuong,
-                    TacGia = sachChon.TacGia,
-                    ImagePath = sachChon.ImagePath
-                });
+                    if (SoLuong < ThayDoiQuyDinh.SoLuongSachNhapToiThieu)
+                    {
+                        MessageBox.Show($"Phải nhập tối thiểu {ThayDoiQuyDinh.SoLuongSachNhapToiThieu} cuốn sách.");
+                    }
 
-                sachDataGrid.ItemsSource = _sachesThem.ToList();
+                    if (sachChon.SoLuong < 0)
+                    {
+                        MessageBox.Show("Số lượng sách nhập phải là số không âm.");
+                    }
 
-                Tong2 = 0;
+                    if (sachChon.SoLuong > ThayDoiQuyDinh.SoLuongSachTonToiDaDeNhapSach)
+                    {
+                        MessageBox.Show($"Số lượng sách tồn phải nhỏ hơn {ThayDoiQuyDinh.SoLuongSachTonToiDaDeNhapSach} để nhập sách.");
+                    }
 
-                for (int i = 0; i < _chiTietDonHangs.Count; i++)
-                {
-                    Tong2 += (int)_chiTietDonHangs[i].Tong;
+                    if ((sachChon.SoLuong - SoLuong) < ThayDoiQuyDinh.SoLuongSachTonToiThieuSauKhiBan)
+                    {
+                        MessageBox.Show($"Số lượng sách tồn sau khi bán phải ít nhất là {ThayDoiQuyDinh.SoLuongSachTonToiThieuSauKhiBan} để bán sách.");
+                    }
                 }
             }
         }
