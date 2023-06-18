@@ -26,10 +26,6 @@ namespace MyShop
     {
         public ThamSo ThayDoiQuyDinh { get; set; } = new ThamSo();
 
-        public int _soLuongSachNhapToiThieu;
-        public int _soLuongSachTonToiDaDeNhapSach;
-        public int _soLuongSachTonToiThieuSauKhiBan;
-
         public static readonly DependencyProperty UserNameLoginWelcomeProperty =
   DependencyProperty.Register("UserNameLoginWelcome", typeof(string), typeof(Window), new PropertyMetadata(null));
 
@@ -161,10 +157,6 @@ namespace MyShop
                 ThayDoiQuyDinh.SoLuongSachNhapToiThieu = 150;
                 ThayDoiQuyDinh.SoLuongSachTonToiDaDeNhapSach = 300;
                 ThayDoiQuyDinh.SoLuongSachTonToiThieuSauKhiBan = 20;
-
-                _soLuongSachNhapToiThieu = 150;
-                _soLuongSachTonToiDaDeNhapSach = 300;
-                _soLuongSachTonToiThieuSauKhiBan = 20;
             }
         }
 
@@ -384,10 +376,6 @@ namespace MyShop
                 ThayDoiQuyDinh.SoLuongSachNhapToiThieu = thayDoiQuyDinhCapNhat.SoLuongSachNhapToiThieu;
                 ThayDoiQuyDinh.SoLuongSachTonToiDaDeNhapSach = thayDoiQuyDinhCapNhat.SoLuongSachTonToiDaDeNhapSach;
                 ThayDoiQuyDinh.SoLuongSachTonToiThieuSauKhiBan = thayDoiQuyDinhCapNhat.SoLuongSachTonToiThieuSauKhiBan;
-
-                _soLuongSachNhapToiThieu = thayDoiQuyDinhCapNhat.SoLuongSachNhapToiThieu;
-                _soLuongSachTonToiDaDeNhapSach = thayDoiQuyDinhCapNhat.SoLuongSachTonToiDaDeNhapSach;
-                _soLuongSachTonToiThieuSauKhiBan = thayDoiQuyDinhCapNhat.SoLuongSachTonToiThieuSauKhiBan;
             }
         }
 

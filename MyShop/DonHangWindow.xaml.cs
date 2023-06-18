@@ -25,7 +25,6 @@ namespace MyShop
         int _totalPages;
         int _rowsPerPage = 5;
         bool _timKiemClick = false;
-
         public static readonly DependencyProperty TotalItemsProperty =
          DependencyProperty.Register("TotalItems3", typeof(int), typeof(Window), new PropertyMetadata(null));
 
