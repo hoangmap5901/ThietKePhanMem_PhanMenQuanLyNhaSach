@@ -29,7 +29,7 @@
 
             <TextBlock Text="Giá" FontWeight="Bold" FontSize="15" Foreground="Purple" Margin="15,20,0,0" />
             <StackPanel Orientation="Horizontal">
-                <TextBlock x:Name="giaTextBox" Text="{Binding Path=Gia, ElementName=Sach_Window}" Margin="15,5,0,0" Width="215"/>
+                <TextBlock x:Name="giaTextBox" Text="{Binding Path=Gia, ElementName=Sach_Window}" Margin="15,5,0,0" Width="100"/>
                 <TextBlock Text=" đồng" Margin="0,5,0,0" Width="315"/>
             </StackPanel>
 

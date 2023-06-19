@@ -40,16 +40,6 @@ namespace MyShop
                 doanhThuSachLineChart.Series.Clear();
                 doanhThuSachLineChart.AxisX.Clear();
 
-
-
-
-
-
-
-                // ---------------
-
-
-
                 if ((NamBaoCaoDoanhThu != "") || (ThangBaoCaoDoanhThu != "" && NamBaoCaoDoanhThu != ""))
                 {
                     var db = new MyShopDBContext();
@@ -90,7 +80,7 @@ namespace MyShop
                             StrokeDashArray = new DoubleCollection { 2 }
                         });
 
-                        var dateAxisXDoanhThuChart = new List<string>();
+                        var dateAxisXDoanhThuChart = new List<string>(); 
 
                         for (int i = 0; i < donHangs.Count; i++)
                         {
@@ -137,15 +127,15 @@ namespace MyShop
                         }
 
 
-                        for (int i = 0; i < tenSaches.Count; i++)
-                        {
-                            doanhThuSachLineChart.Series.Add(new ColumnSeries()
-                            {
-                                DataLabels = true,
-                                Title = tenSaches[i],
-                                Values = new ChartValues<int>() { soLuongBanSaches[i] },
-                            });
-                        }
+                        //for (int i = 0; i < tenSaches.Count; i++)
+                        //{
+                        //    doanhThuSachLineChart.Series.Add(new ColumnSeries()
+                        //    {
+                        //        DataLabels = true,
+                        //        Title = tenSaches[i],
+                        //        Values = new ChartValues<int>() { soLuongBanSaches[i] },
+                        //    });
+                        //}
 
 
                     }
@@ -218,21 +208,17 @@ namespace MyShop
                         }
 
 
-                        for (int i = 0; i < tenSaches.Count; i++)
-                        {
-                            doanhThuSachLineChart.Series.Add(new ColumnSeries()
-                            {
-                                DataLabels = true,
-                                Title = tenSaches[i],
-                                Values = new ChartValues<int>() { soLuongBanSaches[i] },
-                            });
-                        }
+                        //for (int i = 0; i < tenSaches.Count; i++)
+                        //{
+                        //    doanhThuSachLineChart.Series.Add(new ColumnSeries()
+                        //    {
+                        //        DataLabels = true,
+                        //        Title = tenSaches[i],
+                        //        Values = new ChartValues<int>() { soLuongBanSaches[i] },
+                        //    });
+                        //}
 
                     }
-
-
-
-
 
                 }
             }
