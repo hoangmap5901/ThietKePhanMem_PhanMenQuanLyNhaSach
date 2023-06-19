@@ -12,7 +12,7 @@
             <TextBlock Text="Chi Tiết Đơn Hàng" FontWeight="Bold" FontSize="20" Foreground="Blue" Margin="170, 10,0,5"/>
 
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="ID đơn hàng" FontWeight="Bold" FontSize="15" Foreground="Green" Margin="15,5,0,0" />
+                <TextBlock Text="ID Đơn hàng" FontWeight="Bold" FontSize="15" Foreground="Green" Margin="15,5,0,0" />
                 <TextBlock x:Name="idDonHangTextBox" Text="{Binding Path=DonHangID, ElementName=Don_Hang_Window}" Margin="20,7,0,0" Width="200"/>
             </StackPanel>
 

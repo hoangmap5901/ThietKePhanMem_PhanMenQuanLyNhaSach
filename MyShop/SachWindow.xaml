@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:MyShop"
         x:Name="Sach_Window"
         mc:Ignorable="d"
-        Title="Sách Window" Height="700" Width="1200" Loaded="Window_Loaded">
+        Title="Sách Window" Height="650" Width="1200" Loaded="Window_Loaded">
     <Window.Resources>
         <local:RelativeToAbsoluteConverter x:Key="absolute"/>
     </Window.Resources>

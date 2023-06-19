@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MyShop"
         mc:Ignorable="d"
-        Title="Thay Đổi Quy Định Window" Height="700" Width="680" Loaded="Window_Loaded">
+        Title="Thay Đổi Quy Định Window" Height="400" Width="680" Loaded="Window_Loaded">
     <Window.Resources>
         <local:RelativeToAbsoluteConverter x:Key="absolute"/>
     </Window.Resources>
@@ -23,7 +23,7 @@
 
 
 
-        <Button x:Name="thayDoiButton" IsDefault="True" Content="Thay đổi" Click="ThayDoiButton_Click" HorizontalAlignment="Center" VerticalAlignment="Center" Canvas.Left="249" Canvas.Top="601" Height="27" Width="60"/>
-        <Button x:Name="dongButton" IsCancel="True" Content="Đóng" HorizontalAlignment="Center" VerticalAlignment="Center" Canvas.Left="413" Canvas.Top="601" Height="27" Width="60"/>
+        <Button x:Name="thayDoiButton" IsDefault="True" Content="Thay đổi" Click="ThayDoiButton_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="242" Canvas.Top="342" Height="27" Width="60"/>
+        <Button x:Name="dongButton" IsCancel="True" Content="Đóng" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="406" Canvas.Top="342" Height="27" Width="60"/>
     </Canvas>
 </Window>
