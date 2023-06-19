@@ -244,7 +244,7 @@ namespace MyShop
         private void ThemSachButton_Click(object sender, RoutedEventArgs e)
         {
             int pageIndex = pagingComboBox.SelectedIndex;
-            var screen = new ThemSachWindow();
+            var screen = new ThemSachWindow(ThayDoiQuyDinh);
             int numberOfItemsCurrentPagePrev = _numberOfItemsCurrentPage;
 
             if (screen.ShowDialog() == true)

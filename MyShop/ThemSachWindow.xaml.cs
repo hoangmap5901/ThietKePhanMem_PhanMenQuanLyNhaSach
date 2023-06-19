@@ -22,10 +22,19 @@ namespace MyShop
     public partial class ThemSachWindow : Window
     {
         public Sach NewSach { get; set; } = new Sach();
+        public ThamSo ThayDoiQuyDinh { get; set; } = new ThamSo();
         FileInfo _selectedImage = null;
-        public ThemSachWindow()
+        public ThemSachWindow(ThamSo data)
         {
             InitializeComponent();
+
+            ThayDoiQuyDinh.SoLuongSachNhapToiThieu = data.SoLuongSachNhapToiThieu;
+            ThayDoiQuyDinh.SoLuongSachTonToiDaDeNhapSach = data.SoLuongSachTonToiDaDeNhapSach;
+            ThayDoiQuyDinh.SoLuongSachTonToiThieuSauKhiBan = data.SoLuongSachTonToiThieuSauKhiBan;
+
+            MessageBox.Show(ThayDoiQuyDinh.SoLuongSachNhapToiThieu.ToString());
+            MessageBox.Show(ThayDoiQuyDinh.SoLuongSachTonToiDaDeNhapSach.ToString());
+            MessageBox.Show(ThayDoiQuyDinh.SoLuongSachTonToiThieuSauKhiBan.ToString());
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
