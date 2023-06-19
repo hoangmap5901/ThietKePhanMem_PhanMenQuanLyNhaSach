@@ -86,7 +86,7 @@ namespace MyShop
             }
             else
             {
-                if (SoLuong >= ThayDoiQuyDinh.SoLuongSachNhapToiThieu && sachChon.SoLuong >= 0 && sachChon.SoLuong <= ThayDoiQuyDinh.SoLuongSachTonToiDaDeNhapSach && (sachChon.SoLuong - SoLuong) >= ThayDoiQuyDinh.SoLuongSachTonToiThieuSauKhiBan)
+                if ((sachChon.SoLuong - SoLuong) >= ThayDoiQuyDinh.SoLuongSachTonToiThieuSauKhiBan)
                 {
                     _chiTietDonHangs.Add(new ChiTietDonHang()
                     {
@@ -118,21 +118,6 @@ namespace MyShop
                 }
                 else
                 {
-                    if (SoLuong < ThayDoiQuyDinh.SoLuongSachNhapToiThieu)
-                    {
-                        MessageBox.Show($"Phải nhập tối thiểu {ThayDoiQuyDinh.SoLuongSachNhapToiThieu} cuốn sách.");
-                    }
-
-                    if (sachChon.SoLuong < 0)
-                    {
-                        MessageBox.Show("Số lượng sách nhập phải là số không âm.");
-                    }
-
-                    if (sachChon.SoLuong > ThayDoiQuyDinh.SoLuongSachTonToiDaDeNhapSach)
-                    {
-                        MessageBox.Show($"Số lượng sách tồn phải nhỏ hơn {ThayDoiQuyDinh.SoLuongSachTonToiDaDeNhapSach} để nhập sách.");
-                    }
-
                     if ((sachChon.SoLuong - SoLuong) < ThayDoiQuyDinh.SoLuongSachTonToiThieuSauKhiBan)
                     {
                         MessageBox.Show($"Số lượng sách tồn sau khi bán phải ít nhất là {ThayDoiQuyDinh.SoLuongSachTonToiThieuSauKhiBan} để bán sách.");
@@ -187,7 +172,7 @@ namespace MyShop
                     sachBan.SoLuong = sachBan.SoLuong - _chiTietDonHangs[i].SoLuong;
                     db.SaveChanges();
 
-                    messageGiamSoLuongSachBan += $"Successfully reduced {_chiTietDonHangs[i].SoLuong} so luong of Sach record in SQL Server with sachID = {_chiTietDonHangs[i].SachId}.\n";
+                    messageGiamSoLuongSachBan += $"Successfully reduced {_chiTietDonHangs[i].SoLuong} so luong of Sach record in SQL Server with sachID = {_chiTietDonHangs[i].SachId} ({sachBan.SoLuong} books left).\n";
                 }
                 MessageBox.Show(messageGiamSoLuongSachBan);
 

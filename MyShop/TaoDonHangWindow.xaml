@@ -70,7 +70,8 @@
 
         <TextBlock Text="Tổng" Canvas.Left="110" Canvas.Top="728" HorizontalAlignment="Center" VerticalAlignment="Top"/>
         <TextBlock Text="{Binding Path=Tong2, ElementName=Tao_Don_Hang_Window}" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Width="609" Canvas.Left="249" Canvas.Top="728" />
-
+        <TextBlock Text=" đồng" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Width="609" Canvas.Left="400" Canvas.Top="728" />
+        
         <Button x:Name="taoButton" IsDefault="True" Content="Tạo" Click="TaoButton_Click" HorizontalAlignment="Center" VerticalAlignment="Top" Canvas.Left="312" Canvas.Top="774" Height="27" Width="50"/>
         <Button x:Name="dongButton" IsCancel="True" Content="Đóng" HorizontalAlignment="Center" VerticalAlignment="Top" Canvas.Left="670" Canvas.Top="774" Height="27" Width="50"/>
     </Canvas>
