@@ -22,25 +22,53 @@ namespace MyShop
     public partial class CapNhatSachWindow : Window
     {
         public Sach CapNhatSach { get; set; } = new Sach();
+        public ThamSo ThayDoiQuyDinh { get; set; } = new ThamSo();
+        public int SoLuong { get => _soLuong; set => _soLuong = value; }
         bool _daChonHinhTrongChonHinhButton = false;
         FileInfo _selectedImage = null;
+        int _soLuong;
+        public static readonly DependencyProperty SoLuongCuProperty =
+        DependencyProperty.Register("SoLuongCu", typeof(int), typeof(Window), new PropertyMetadata(null));
 
-        public CapNhatSachWindow(Sach data)
+        public static readonly DependencyProperty SoLuongMoiProperty =
+       DependencyProperty.Register("SoLuongMoi", typeof(int), typeof(Window), new PropertyMetadata(null));
+
+        public int SoLuongCu
+        {
+            get { return (int)GetValue(SoLuongCuProperty); }
+            set { SetValue(SoLuongCuProperty, value); }
+        }
+        public int SoLuongMoi
+        {
+            get { return (int)GetValue(SoLuongMoiProperty); }
+            set { SetValue(SoLuongMoiProperty, value); }
+        }
+        public CapNhatSachWindow(Sach sachData, ThamSo thamSodata)
         {
             InitializeComponent();
 
-            CapNhatSach.SachId = data.SachId;
-            CapNhatSach.Ten = data.Ten;
-            CapNhatSach.TacGia = data.TacGia;
-            CapNhatSach.Gia = data.Gia;
-            CapNhatSach.SoLuong = data.SoLuong;
-            CapNhatSach.ImagePath = data.ImagePath;
-            CapNhatSach.TheLoaiId = data.TheLoaiId;
+            CapNhatSach.SachId = sachData.SachId;
+            CapNhatSach.Ten = sachData.Ten;
+            CapNhatSach.TacGia = sachData.TacGia;
+            CapNhatSach.Gia = sachData.Gia;
+            CapNhatSach.SoLuong = sachData.SoLuong;
+            CapNhatSach.ImagePath = sachData.ImagePath;
+            CapNhatSach.TheLoaiId = sachData.TheLoaiId;
+
+            ThayDoiQuyDinh.SoLuongSachNhapToiThieu = thamSodata.SoLuongSachNhapToiThieu;
+            ThayDoiQuyDinh.SoLuongSachTonToiDaDeNhapSach = thamSodata.SoLuongSachTonToiDaDeNhapSach;
+            ThayDoiQuyDinh.SoLuongSachTonToiThieuSauKhiBan = thamSodata.SoLuongSachTonToiThieuSauKhiBan;
+
+            MessageBox.Show(ThayDoiQuyDinh.SoLuongSachNhapToiThieu.ToString());
+            MessageBox.Show(ThayDoiQuyDinh.SoLuongSachTonToiDaDeNhapSach.ToString());
+            MessageBox.Show(ThayDoiQuyDinh.SoLuongSachTonToiThieuSauKhiBan.ToString());
+
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             DataContext = CapNhatSach;
+            soLuongTextBox.DataContext = this;
 
             var db = new MyShopDBContext();
             var theLoais = db.TheLoais.Where(u => u.TheLoaiId != 1).ToList();
@@ -54,6 +82,8 @@ namespace MyShop
                     theLoaiSachComboBox.SelectedIndex = i;
                 }
             }
+
+            SoLuongCu = (int)CapNhatSach.SoLuong;
         }
 
         private void ChonHinhButton_Click(object sender, RoutedEventArgs e)
@@ -89,6 +119,12 @@ namespace MyShop
                     theLoaiSachComboBox.SelectedIndex = i;
                 }
             }
+        }
+
+
+        private void NhapSachButton_Click(object sender, RoutedEventArgs e)
+        {
+
         }
 
         private void CapNhatButton_Click(object sender, RoutedEventArgs e)

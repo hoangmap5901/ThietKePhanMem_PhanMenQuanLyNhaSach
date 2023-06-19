@@ -31,6 +31,7 @@ namespace MyShop
         int _rowsPerPage = 12;
         int _totalPages;
         bool _timSachHetHanClick = false;
+        public ThamSo ThayDoiQuyDinh { get; set; } = new ThamSo();
 
         public static readonly DependencyProperty TotalItemsProperty =
           DependencyProperty.Register("TotalItems2", typeof(int), typeof(Window), new PropertyMetadata(null));
@@ -104,10 +105,13 @@ namespace MyShop
             set { SetValue(SoLuongProperty, value); }
         }
 
-        public SachWindow()
+        public SachWindow(ThamSo data)
         {
             InitializeComponent();
 
+            ThayDoiQuyDinh.SoLuongSachNhapToiThieu = data.SoLuongSachNhapToiThieu;
+            ThayDoiQuyDinh.SoLuongSachTonToiDaDeNhapSach = data.SoLuongSachTonToiDaDeNhapSach;
+            ThayDoiQuyDinh.SoLuongSachTonToiThieuSauKhiBan = data.SoLuongSachTonToiThieuSauKhiBan;
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -286,7 +290,7 @@ namespace MyShop
 
             Sach sachChon = sachDataGrid.SelectedItem as Sach;
 
-            var screen = new CapNhatSachWindow(sachChon);
+            var screen = new CapNhatSachWindow(sachChon, ThayDoiQuyDinh);
 
             if (screen.ShowDialog() == true)
             {

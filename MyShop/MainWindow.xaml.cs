@@ -344,7 +344,7 @@ namespace MyShop
 
         private void QuanLiSachButton_Click(object sender, RoutedEventArgs e)
         {
-            var sachScreen = new SachWindow();
+            var sachScreen = new SachWindow(ThayDoiQuyDinh);
             sachScreen.Show();
         }
 

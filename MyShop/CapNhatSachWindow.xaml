@@ -4,13 +4,14 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MyShop"
+        x:Name="Cap_Nhat_Sach_Window"
         mc:Ignorable="d"
-       Title="Cập Nhật Sách Window" Height="800" Width="680" Loaded="Window_Loaded">
+       Title="Cập Nhật Sách Window" Height="800" Width="900" Loaded="Window_Loaded">
     <Window.Resources>
         <local:RelativeToAbsoluteConverter x:Key="absolute"/>
     </Window.Resources>
     <Canvas>
-        <TextBlock Text="Nhập Thông Tin Cập Nhật Sách" FontWeight="Bold" FontSize="25" Canvas.Left="112" Canvas.Top="48"/>
+        <TextBlock Text="Nhập Thông Tin Cập Nhật Sách" FontWeight="Bold" FontSize="25" Canvas.Left="259" Canvas.Top="46"/>
 
         <TextBlock Text="Tên" Canvas.Left="110" Canvas.Top="151"/>
         <TextBox x:Name="tenTextBox" Text="{Binding Path=Ten}" Padding="5,0,0,0" Canvas.Left="244" Canvas.Top="149" Width="312"/>
@@ -30,18 +31,25 @@
         <TextBlock Text="Giá" Canvas.Left="110" Canvas.Top="351"/>
         <TextBox x:Name="giaTextBox" Text="{Binding Path=Gia}" Padding="5,0,0,0" Canvas.Left="244" Canvas.Top="349" Width="312"/>
 
-        <TextBlock Text="Số lượng" Canvas.Left="110" Canvas.Top="423"/>
-        <TextBox x:Name="soLuongTextBox" Text="{Binding Path=SoLuong}" Padding="5,0,0,0" Canvas.Left="244" Canvas.Top="421" Width="312"/>
+        <TextBlock Text="Số lượng cũ" Canvas.Left="110" Canvas.Top="423"/>
+        <TextBlock x:Name="soLuongCuTextBox" Text="{Binding Path=SoLuongCu, ElementName=Cap_Nhat_Sach_Window}" Padding="5,0,0,0" Canvas.Left="244" Canvas.Top="421" Width="312"/>
 
-        <TextBlock Text="Hình bìa sách" Canvas.Left="116" Canvas.Top="540"/>
+        <TextBlock Text="Số lượng sách nhập" Canvas.Left="567" Canvas.Top="422" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <TextBox Name="soLuongTextBox" Text="{Binding SoLuong}" d:Text="5" Padding="5,5,0,0" Canvas.Left="690" Canvas.Top="416" Width="188" Height="30" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Button x:Name="nhapSachButton" Content="Nhập sách" Click="NhapSachButton_Click" HorizontalAlignment="Center" VerticalAlignment="Top" Canvas.Left="521" Canvas.Top="460" Width="70" Height="27"/>
+
+        <TextBlock Text="Số lượng mới" Canvas.Left="110" Canvas.Top="508" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <TextBlock x:Name="soLuongMoiTextBox" Text="{Binding Path=SoLuongMoi, ElementName=Cap_Nhat_Sach_Window}" Padding="5,0,0,0" Canvas.Left="250" Canvas.Top="508" Width="312"/>
+
+        <TextBlock Text="Hình bìa sách" Canvas.Left="116" Canvas.Top="606" HorizontalAlignment="Center" VerticalAlignment="Top"/>
         <Image x:Name="imagePath" 
                d:Source="Images/Sach/book_icon.jpg" 
                Source="{Binding Path=ImagePath, Converter={StaticResource absolute}}"
                RenderOptions.BitmapScalingMode="HighQuality" 
-               Height="152" Canvas.Left="244" Width="156" Canvas.Top="472"/>
-        <Button x:Name="chonHinhButton" Content="Chọn hình..." Click="ChonHinhButton_Click" Canvas.Left="486" Canvas.Top="537" Width="70" Height="27"/>
+               Height="152" Canvas.Left="244" Width="156" Canvas.Top="538" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <Button x:Name="chonHinhButton" Content="Chọn hình..." Click="ChonHinhButton_Click" Canvas.Left="486" Canvas.Top="603" Width="70" Height="27" HorizontalAlignment="Center" VerticalAlignment="Top"/>
 
-        <Button x:Name="capNhatButton" IsDefault="True" Content="Cập nhật" Click="CapNhatButton_Click" Canvas.Left="249" Canvas.Top="673" Height="27" Width="60"/>
-        <Button x:Name="dongButton" IsCancel="True" Content="Đóng" Canvas.Left="413" Canvas.Top="673" Height="27" Width="60"/>
+        <Button x:Name="capNhatButton" IsDefault="True" Content="Cập nhật" Click="CapNhatButton_Click" Canvas.Left="249" Canvas.Top="739" Height="27" Width="60" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <Button x:Name="dongButton" IsCancel="True" Content="Đóng" Canvas.Left="413" Canvas.Top="739" Height="27" Width="60" HorizontalAlignment="Center" VerticalAlignment="Top"/>
     </Canvas>
 </Window>
