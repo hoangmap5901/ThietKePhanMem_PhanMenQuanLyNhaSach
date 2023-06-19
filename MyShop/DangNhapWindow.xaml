@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Đăng Nhập Window" Height="450" Width="600" Loaded="Window_Loaded">
     <Canvas>
-        <TextBlock Text="PHẦN MỀM QUẢN LÍ CỬA HÀNG SÁCH" FontWeight="Bold" FontSize="30" Canvas.Top="62" Canvas.Left="22"/>
+        <TextBlock Text="PHẦN MỀM QUẢN LÍ NHÀ SÁCH" FontWeight="Bold" FontSize="30" Canvas.Top="62" Canvas.Left="69"/>
         <TextBlock Text="Đăng Nhập" FontWeight="Bold" FontSize="25" Canvas.Left="233" Canvas.Top="135"/>
         <TextBlock Text="Username" Canvas.Left="98" Canvas.Top="228"/>
         <TextBox x:Name="usernameTextBox" Padding="5,0,0,0" Canvas.Left="216" Canvas.Top="228" Width="214"/>

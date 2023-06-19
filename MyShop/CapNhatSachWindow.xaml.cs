@@ -158,7 +158,7 @@ namespace MyShop
                 }
 
                 CapNhatSach.ImagePath = $"Images/Sach/{_selectedImage.Name}";
-            }
+            }             
 
                 var db = new MyShopDBContext();
                 var sachCapNhat = db.Saches.FirstOrDefault(u => u.SachId == CapNhatSach.SachId);
