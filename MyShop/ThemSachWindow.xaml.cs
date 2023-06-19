@@ -31,10 +31,6 @@ namespace MyShop
             ThayDoiQuyDinh.SoLuongSachNhapToiThieu = data.SoLuongSachNhapToiThieu;
             ThayDoiQuyDinh.SoLuongSachTonToiDaDeNhapSach = data.SoLuongSachTonToiDaDeNhapSach;
             ThayDoiQuyDinh.SoLuongSachTonToiThieuSauKhiBan = data.SoLuongSachTonToiThieuSauKhiBan;
-
-            MessageBox.Show(ThayDoiQuyDinh.SoLuongSachNhapToiThieu.ToString());
-            MessageBox.Show(ThayDoiQuyDinh.SoLuongSachTonToiDaDeNhapSach.ToString());
-            MessageBox.Show(ThayDoiQuyDinh.SoLuongSachTonToiThieuSauKhiBan.ToString());
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -82,32 +78,42 @@ namespace MyShop
 
         private void ThemButton_Click(object sender, RoutedEventArgs e)
         {
-            var folder = AppDomain.CurrentDomain.BaseDirectory;
-            string newPath = $"{folder}Images/Sach/{_selectedImage.Name}";
-
-            if (!File.Exists(newPath))
+            if (NewSach.SoLuong < 0)
             {
-                File.Copy(_selectedImage.FullName, newPath);
+                MessageBox.Show("Số lượng sách nhập phải là số không âm.");
             }
-            NewSach.ImagePath = $"Images/Sach/{_selectedImage.Name}";
-
-            var db = new MyShopDBContext();
-            var sachThem = new Sach()
+            else if (NewSach.SoLuong < ThayDoiQuyDinh.SoLuongSachNhapToiThieu)
             {
-               Ten = NewSach.Ten,
-               TacGia = NewSach.TacGia,
-               Gia = NewSach.Gia,
-               SoLuong = NewSach.SoLuong,
-               ImagePath = NewSach.ImagePath,
-               TheLoaiId = NewSach.TheLoaiId
-            };
+                MessageBox.Show($"Số lượng sách nhập phải ít nhất là {ThayDoiQuyDinh.SoLuongSachNhapToiThieu}.");
+            }
+            else {
+                var folder = AppDomain.CurrentDomain.BaseDirectory;
+                string newPath = $"{folder}Images/Sach/{_selectedImage.Name}";
 
-            db.Saches.Add(sachThem);
-            db.SaveChanges();
+                if (!File.Exists(newPath))
+                {
+                    File.Copy(_selectedImage.FullName, newPath);
+                }
+                NewSach.ImagePath = $"Images/Sach/{_selectedImage.Name}";
 
-            MessageBox.Show($"Successfully added new Sach record into SQL Server wit SachID = {sachThem.SachId}.");
+                var db = new MyShopDBContext();
+                var sachThem = new Sach()
+                {
+                    Ten = NewSach.Ten,
+                    TacGia = NewSach.TacGia,
+                    Gia = NewSach.Gia,
+                    SoLuong = NewSach.SoLuong,
+                    ImagePath = NewSach.ImagePath,
+                    TheLoaiId = NewSach.TheLoaiId
+                };
 
-            DialogResult = true;
+                db.Saches.Add(sachThem);
+                db.SaveChanges();
+
+                MessageBox.Show($"Successfully added new Sach record into SQL Server wit SachID = {sachThem.SachId}.");
+
+                DialogResult = true;
+            }
         }
     }
 }

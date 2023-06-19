@@ -58,11 +58,6 @@ namespace MyShop
             ThayDoiQuyDinh.SoLuongSachNhapToiThieu = thamSodata.SoLuongSachNhapToiThieu;
             ThayDoiQuyDinh.SoLuongSachTonToiDaDeNhapSach = thamSodata.SoLuongSachTonToiDaDeNhapSach;
             ThayDoiQuyDinh.SoLuongSachTonToiThieuSauKhiBan = thamSodata.SoLuongSachTonToiThieuSauKhiBan;
-
-            MessageBox.Show(ThayDoiQuyDinh.SoLuongSachNhapToiThieu.ToString());
-            MessageBox.Show(ThayDoiQuyDinh.SoLuongSachTonToiDaDeNhapSach.ToString());
-            MessageBox.Show(ThayDoiQuyDinh.SoLuongSachTonToiThieuSauKhiBan.ToString());
-
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
