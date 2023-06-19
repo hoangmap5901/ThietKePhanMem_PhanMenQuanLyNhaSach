@@ -23,20 +23,20 @@ namespace MyShop
     {
         public Sach CapNhatSach { get; set; } = new Sach();
         public ThamSo ThayDoiQuyDinh { get; set; } = new ThamSo();
-        public int SoLuong { get => _soLuong; set => _soLuong = value; }
+        public int SoLuongSachNhap { get => _soLuongSachNhap; set => _soLuongSachNhap = value; }
         bool _daChonHinhTrongChonHinhButton = false;
         FileInfo _selectedImage = null;
-        int _soLuong;
-        public static readonly DependencyProperty SoLuongCuProperty =
-        DependencyProperty.Register("SoLuongCu", typeof(int), typeof(Window), new PropertyMetadata(null));
+        int _soLuongSachNhap = 0;
+        public static readonly DependencyProperty SoLuongTonProperty =
+        DependencyProperty.Register("SoLuongTon", typeof(int), typeof(Window), new PropertyMetadata(null));
 
         public static readonly DependencyProperty SoLuongMoiProperty =
        DependencyProperty.Register("SoLuongMoi", typeof(int), typeof(Window), new PropertyMetadata(null));
 
-        public int SoLuongCu
+        public int SoLuongTon
         {
-            get { return (int)GetValue(SoLuongCuProperty); }
-            set { SetValue(SoLuongCuProperty, value); }
+            get { return (int)GetValue(SoLuongTonProperty); }
+            set { SetValue(SoLuongTonProperty, value); }
         }
         public int SoLuongMoi
         {
@@ -78,7 +78,8 @@ namespace MyShop
                 }
             }
 
-            SoLuongCu = (int)CapNhatSach.SoLuong;
+            SoLuongTon = (int)CapNhatSach.SoLuong;
+            SoLuongMoi = (int)CapNhatSach.SoLuong;
         }
 
         private void ChonHinhButton_Click(object sender, RoutedEventArgs e)
@@ -119,12 +120,33 @@ namespace MyShop
 
         private void NhapSachButton_Click(object sender, RoutedEventArgs e)
         {
+            if (SoLuongSachNhap < 0)
+            {
+                MessageBox.Show("Số lượng sách nhập phải là số không âm.");
+            }
+            else
+            {
+                if (SoLuongSachNhap >= ThayDoiQuyDinh.SoLuongSachNhapToiThieu && CapNhatSach.SoLuong <= ThayDoiQuyDinh.SoLuongSachTonToiDaDeNhapSach)
+                {
+                    SoLuongMoi = SoLuongTon + SoLuongSachNhap;
+                }
+                else
+                {
+                    if (SoLuongSachNhap < ThayDoiQuyDinh.SoLuongSachNhapToiThieu)
+                    {
+                        MessageBox.Show($"Số lượng sách nhập phải ít nhất là {ThayDoiQuyDinh.SoLuongSachNhapToiThieu}.");
+                    }
 
+                    if (CapNhatSach.SoLuong > ThayDoiQuyDinh.SoLuongSachTonToiDaDeNhapSach)
+                    {
+                        MessageBox.Show($"Đầu sách nhập phải có lượng tồn ít hơn hoặc bằng {ThayDoiQuyDinh.SoLuongSachTonToiDaDeNhapSach}.");
+                    }
+                }
+            }
         }
 
         private void CapNhatButton_Click(object sender, RoutedEventArgs e)
         {
-
             if (_daChonHinhTrongChonHinhButton == true)
             {
                 var folder = AppDomain.CurrentDomain.BaseDirectory;
@@ -136,6 +158,7 @@ namespace MyShop
                 }
 
                 CapNhatSach.ImagePath = $"Images/Sach/{_selectedImage.Name}";
+            }
 
                 var db = new MyShopDBContext();
                 var sachCapNhat = db.Saches.FirstOrDefault(u => u.SachId == CapNhatSach.SachId);
@@ -143,14 +166,14 @@ namespace MyShop
                 sachCapNhat.Ten = CapNhatSach.Ten;
                 sachCapNhat.TacGia = CapNhatSach.TacGia;
                 sachCapNhat.Gia = CapNhatSach.Gia;
-                sachCapNhat.SoLuong = CapNhatSach.SoLuong;
+                sachCapNhat.SoLuong = SoLuongMoi;
                 sachCapNhat.ImagePath = CapNhatSach.ImagePath;
                 sachCapNhat.TheLoaiId = CapNhatSach.TheLoaiId;
 
                 db.SaveChanges();
 
                 MessageBox.Show($"Successfully updated Sach record in SQL Server with SachID = {sachCapNhat.SachId}.");
-            }
+
 
             DialogResult = true;
         }

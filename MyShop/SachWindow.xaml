@@ -26,10 +26,13 @@
 
             <TextBlock Text="Tác giả" FontWeight="Bold" FontSize="15" Foreground="Purple" Margin="15,20,0,0" />
             <TextBlock x:Name="tacGiaTextBox" Text="{Binding Path=TacGia, ElementName=Sach_Window}" Margin="0,5,0,0" Width="315"/>
-            
+
             <TextBlock Text="Giá" FontWeight="Bold" FontSize="15" Foreground="Purple" Margin="15,20,0,0" />
-            <TextBlock x:Name="giaTextBox" Text="{Binding Path=Gia, ElementName=Sach_Window}" Margin="0,5,0,0" Width="315"/>
-            
+            <StackPanel Orientation="Horizontal">
+                <TextBlock x:Name="giaTextBox" Text="{Binding Path=Gia, ElementName=Sach_Window}" Margin="15,5,0,0" Width="215"/>
+                <TextBlock Text=" đồng" Margin="0,5,0,0" Width="315"/>
+            </StackPanel>
+
             <TextBlock Text="Số lượng" FontWeight="Bold" FontSize="15" Foreground="Purple" Margin="15,20,0,0" />
             <TextBlock x:Name="soLuongTextBox" Text="{Binding Path=SoLuong, ElementName=Sach_Window}" Margin="0,5,0,0" Width="315"/>
         </StackPanel>
