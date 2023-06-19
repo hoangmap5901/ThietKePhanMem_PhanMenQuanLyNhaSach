@@ -133,7 +133,7 @@ namespace MyShop {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/MyShop;V1.0.0.0;component/taodonhangwindow.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/MyShop;component/taodonhangwindow.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\TaoDonHangWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

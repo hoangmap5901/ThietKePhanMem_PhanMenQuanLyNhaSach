@@ -7,7 +7,9 @@
         mc:Ignorable="d"
         Title="Thể Loại Sách Window" Height="550" Width="600" Loaded="Window_Loaded">
     <Canvas>
-        <StackPanel Orientation="Horizontal" Height="50" DockPanel.Dock="Top" Canvas.Left="10">
+        <TextBlock Text="Quản Lí Thể Loại Sách" FontWeight="Bold" FontSize="25" Canvas.Left="172" Canvas.Top="10" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+
+        <StackPanel Orientation="Horizontal" Height="50" Margin="0,50,0,0" Canvas.Left="10">
             <Button Margin="5" x:Name="themTheLoaiButton" Content="Thêm" Width="80" Height="35" 
                 Click="ThemTheLoaiButton_Click" />
             <Button Margin="5" x:Name="xoaTheLoaiButton" Content="Xóa" Width="80" Height="35" 
@@ -16,7 +18,9 @@
                 Click="CapNhatTheLoaiButton_Click" Canvas.Left="245" Canvas.Top="18"/>
         </StackPanel>
 
-        <DataGrid Name="theLoaiDataGrid" Height="404" Width="578" Canvas.Top="60" HorizontalScrollBarVisibility="Visible"
-                  VerticalScrollBarVisibility="Visible" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+
+        <DataGrid Name="theLoaiDataGrid" Height="404" Width="578" Canvas.Top="105" HorizontalScrollBarVisibility="Visible"
+                  VerticalScrollBarVisibility="Visible" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="10"/>
     </Canvas>
 </Window>

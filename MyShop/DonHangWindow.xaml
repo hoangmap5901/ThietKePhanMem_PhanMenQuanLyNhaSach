@@ -61,6 +61,8 @@
         </StackPanel>
 
         <StackPanel Orientation="Vertical">
+            <TextBlock Text="Quản Lí Đơn Hàng" FontWeight="Bold" FontSize="25" Margin="200,10,0,0"/>
+            
             <StackPanel Orientation="Horizontal" Height="50" Margin="5, 20,0,0" DockPanel.Dock="Top">
                 <Button Margin="5" x:Name="taoDonHanghButton" Content="Tạo" Width="80" Height="35" 
                 Click="TaoDonHangButton_Click" />

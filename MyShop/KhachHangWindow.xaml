@@ -6,12 +6,14 @@
         xmlns:local="clr-namespace:MyShop"
         x:Name="Khach_Hang_Window"
         mc:Ignorable="d"
-        Title="Khách Hàng Window" Height="450" Width="700" Loaded="Window_Loaded">
+        Title="Khách Hàng Window" Height="500" Width="700" Loaded="Window_Loaded">
     <Window.Resources>
         <local:RelativeToAbsoluteConverter x:Key="absolute"/>
     </Window.Resources>
     <Canvas>
-        <StackPanel Orientation="Horizontal" Height="50" DockPanel.Dock="Top" Canvas.Left="10">
+        <TextBlock Text="Quản Lí Khách Hàng" FontWeight="Bold" FontSize="25" Canvas.Left="260" Canvas.Top="10" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+
+        <StackPanel Orientation="Horizontal" Height="50" Margin="10,70,0,0">
             <Button Margin="5" x:Name="themKhachHangButton" Content="Thêm" Width="80" Height="35" 
                 Click="ThemKhachHangButton_Click" />
             <Button Margin="5" x:Name="xoaKhachHangButton" Content="Xóa" Width="80" Height="35" 
@@ -20,7 +22,7 @@
                 Click="CapNhatKhachHangButton_Click" Canvas.Left="245" Canvas.Top="18"/>
         </StackPanel>
 
-        <ListView ScrollViewer.HorizontalScrollBarVisibility="Disabled" Padding="10, 10, 0, 0" Name="khachHangListView" Canvas.Left="10" Canvas.Top="55" Height="251" Width="436">
+        <ListView ScrollViewer.HorizontalScrollBarVisibility="Disabled" Padding="10, 10, 0, 0" Name="khachHangListView" Canvas.Left="10" Canvas.Top="129" Height="200" Width="436" HorizontalAlignment="Center" VerticalAlignment="Top">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Vertical" Width="150" Height="150">
@@ -71,15 +73,15 @@
             </ListView.ItemContainerStyle>
         </ListView>
 
-        <TextBlock Text="Số Khách Hàng mỗi trang:" Canvas.Left="504" Canvas.Top="55"/>
-        <TextBox Name="rowsPerPageTextBox" Text="{Binding RowsPerPage}" d:Text="2" Padding="5,5,0,0" Canvas.Left="473" Canvas.Top="92" Width="188" Height="30"/>
-        <Button Name="updateRowsPerPageButton" Width="80" Height="34" Content="Cập nhật" Click="UpdateRowsPerPageButton_Click" Canvas.Left="527" Canvas.Top="146"/>
+        <TextBlock Text="Số Khách Hàng mỗi trang:" Canvas.Left="504" Canvas.Top="83" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <TextBox Name="rowsPerPageTextBox" Text="{Binding RowsPerPage}" d:Text="2" Padding="5,5,0,0" Canvas.Left="473" Canvas.Top="120" Width="188" Height="30" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <Button Name="updateRowsPerPageButton" Width="80" Height="34" Content="Cập nhật" Click="UpdateRowsPerPageButton_Click" Canvas.Left="527" Canvas.Top="174" HorizontalAlignment="Center" VerticalAlignment="Top"/>
 
-        <TextBlock Text="Từ khóa tên:" Canvas.Left="504" Canvas.Top="199"/>
-        <TextBox Name="keywordTextBox" Text="{Binding Keyword}" Padding="5,5,0,0" Width="188" Height="30" Canvas.Left="473" Canvas.Top="228"/>
-        <Button Content="Tìm kiếm" Width="80" Height="35" Name="searchButton" Click="SearchButton_Click" Canvas.Left="527" Canvas.Top="271"/>
+        <TextBlock Text="Từ khóa tên:" Canvas.Left="504" Canvas.Top="227" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <TextBox Name="keywordTextBox" Text="{Binding Keyword}" Padding="5,5,0,0" Width="188" Height="30" Canvas.Left="473" Canvas.Top="256" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <Button Content="Tìm kiếm" Width="80" Height="35" Name="searchButton" Click="SearchButton_Click" Canvas.Left="527" Canvas.Top="299" HorizontalAlignment="Center" VerticalAlignment="Top"/>
 
-        <ComboBox SelectionChanged="PagingComboBox_SelectionChanged" Name="pagingComboBox" Width="150" Height="35" Canvas.Left="156" Canvas.Top="336" HorizontalAlignment="center" VerticalAlignment="Center">
+        <ComboBox SelectionChanged="PagingComboBox_SelectionChanged" Name="pagingComboBox" Width="150" Height="35" Canvas.Left="156" Canvas.Top="360" HorizontalAlignment="Center" VerticalAlignment="Top">
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
@@ -91,7 +93,7 @@
             </ComboBox.ItemTemplate>
         </ComboBox>
 
-        <StackPanel Orientation="Horizontal" Canvas.Left="133" Canvas.Top="390">
+        <StackPanel Orientation="Horizontal" Canvas.Left="133" Canvas.Top="414" HorizontalAlignment="Center" VerticalAlignment="Top">
             <TextBlock Text="Đang hiển thị " Foreground="Green"/>
             <TextBlock Text="{Binding Path=NumberOfItemsCurrentPage1, ElementName=Khach_Hang_Window}" FontWeight="Bold"/>
             <TextBlock Text=" Khách Hàng  / " Foreground="Green"/>
@@ -99,9 +101,9 @@
             <TextBlock Text=" Khách Hàng" Foreground="Green"/>
         </StackPanel>
 
-        <Button Name="nextButton" Width="80" Height="35" Click="NextButton_Click" Content="Next" Canvas.Left="339" Canvas.Top="336"/>
+        <Button Name="nextButton" Width="80" Height="35" Click="NextButton_Click" Content="Next" Canvas.Left="339" Canvas.Top="360" HorizontalAlignment="Center" VerticalAlignment="Top"/>
 
-        <Button Name="previousButton" Width="80" Height="35" Click="PreviousButton_Click" Canvas.Left="43" Canvas.Top="336" Content="Previous"/>
+        <Button Name="previousButton" Width="80" Height="35" Click="PreviousButton_Click" Canvas.Left="43" Canvas.Top="360" Content="Previous" HorizontalAlignment="Center" VerticalAlignment="Top"/>
 
     </Canvas>
 </Window>
