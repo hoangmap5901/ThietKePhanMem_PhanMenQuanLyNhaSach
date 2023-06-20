@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MyShop"
         mc:Ignorable="d"
-        Title="Thay Đổi Quy Định Window" Height="400" Width="680" Loaded="Window_Loaded">
+        Title="Thay Đổi Quy Định Window" Height="450" Width="680" Loaded="Window_Loaded">
     <Window.Resources>
         <local:RelativeToAbsoluteConverter x:Key="absolute"/>
     </Window.Resources>

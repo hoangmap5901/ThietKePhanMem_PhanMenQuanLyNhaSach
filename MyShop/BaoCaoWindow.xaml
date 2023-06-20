@@ -9,10 +9,10 @@
         Title="Báo Cáo Window" Height="900" Width="800">
     <DockPanel>
         <TabControl Name="baoCaoTabControl" DockPanel.Dock="Bottom" SelectionChanged="TabControl_SelectionChanged">
-            <TabItem Name="baoCaoDoanhThuSachTabItem" Header="Báo cáo doanh thu sách và các sách bán chạy">
+            <TabItem Name="baoCaoDoanhThuSachTabItem" Header="Báo cáo doanh thu sách">
                 <StackPanel Orientation="Vertical">
-                    <TextBlock Text="Báo Cáo Doanh Thu Sách Và Các Sách Bán Chạy" FontWeight="Bold" 
-                   FontSize="25" HorizontalAlignment="Left" Width="593" Margin="120,20,0,0"/>
+                    <TextBlock Text="Báo Cáo Doanh Thu Sách" FontWeight="Bold" 
+                   FontSize="25" HorizontalAlignment="Left" Width="593" Margin="260,20,0,0"/>
 
                     <TextBlock Text="Chọn tháng, năm báo cáo:"  
                    HorizontalAlignment="Left" Width="593" Margin="270,20,0,0" FontSize="20"/>
