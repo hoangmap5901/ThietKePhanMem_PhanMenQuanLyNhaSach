@@ -93,7 +93,7 @@ namespace MyShop {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/MyShop;component/thaydoiquydinhwindow.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/MyShop;V1.0.0.0;component/thaydoiquydinhwindow.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\ThayDoiQuyDinhWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

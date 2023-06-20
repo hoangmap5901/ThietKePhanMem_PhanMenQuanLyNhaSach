@@ -11,7 +11,7 @@
         <local:RelativeToAbsoluteConverter x:Key="absolute"/>
     </Window.Resources>
     <Canvas>
-        <TextBlock Text="Cập Nhật Thông Tin Tạo Đơn Hàng" FontWeight="Bold" FontSize="25" Canvas.Left="337" Canvas.Top="56"/>
+        <TextBlock Text="Nhập Thông Tin Cập Nhật Đơn Hàng" FontWeight="Bold" FontSize="25" Canvas.Left="303" Canvas.Top="56" HorizontalAlignment="Center" VerticalAlignment="Top"/>
 
         <TextBlock Text="Khách hàng" Canvas.Left="110" Canvas.Top="151"/>
         <ComboBox SelectionChanged="khachHangComboBox_SelectionChanged" Name="khachHangComboBox" Width="378" Height="26" VerticalAlignment="Center" Canvas.Left="250" Canvas.Top="143" HorizontalAlignment="Left">
