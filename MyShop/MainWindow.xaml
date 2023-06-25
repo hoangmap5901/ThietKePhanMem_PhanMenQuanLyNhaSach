@@ -37,7 +37,7 @@
             Click="DashboardButton_Click" Canvas.Left="10" Canvas.Top="10"/>
 
         <Button x:Name="thayDoiQuyDinhButton" Width="163" Height="40" Content="Thay đổi quy định"
-            Click="ThayDoiQuyDinhButton_Click" Canvas.Left="825" Canvas.Top="10" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            Click="ThayDoiQuyDinhButton_Click" Canvas.Left="805" Canvas.Top="10" HorizontalAlignment="Left" VerticalAlignment="Center"/>
 
         <TextBlock x:Name="tongSachTextBox1" d:Text="1" Visibility="Hidden" Text="{Binding Path=TongSach, ElementName=Dashboard_Window}" FontWeight="Bold" FontSize="30" Foreground="LightBlue" Width="200" Canvas.Left="69" Canvas.Top="85" HorizontalAlignment="Center" VerticalAlignment="Top"/>
         <TextBlock x:Name="tongSachTextBox2" Foreground="White" Visibility="Hidden" Text="Tựa Sách" Width="200" FontSize="20" Canvas.Left="55" Canvas.Top="166" HorizontalAlignment="Center" VerticalAlignment="Top"/>
