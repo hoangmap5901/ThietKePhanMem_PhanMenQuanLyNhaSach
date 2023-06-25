@@ -4,15 +4,21 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MyShop"
+        x:Name="Dang_Nhap_Window"
         mc:Ignorable="d"
         Title="Đăng Nhập Window" Height="450" Width="600" Loaded="Window_Loaded">
     <Canvas>
-        <TextBlock Text="PHẦN MỀM QUẢN LÍ NHÀ SÁCH" FontWeight="Bold" FontSize="30" Canvas.Top="62" Canvas.Left="69"/>
-        <TextBlock Text="Đăng Nhập" FontWeight="Bold" FontSize="25" Canvas.Left="233" Canvas.Top="135"/>
-        <TextBlock Text="Username" Canvas.Left="98" Canvas.Top="228"/>
-        <TextBox x:Name="usernameTextBox" Padding="5,0,0,0" Canvas.Left="216" Canvas.Top="228" Width="214"/>
-        <TextBlock Text="Password" Canvas.Left="98" Canvas.Top="281"/>
-        <PasswordBox x:Name="dangNhapPasswordPasswordBox" Padding="5,0,0,0" Canvas.Left="216" Canvas.Top="289" Width="214"/>
+        <Canvas.Background>
+            <ImageBrush ImageSource="{Binding Path=BackgroundImageDangNhapPath, ElementName=Dang_Nhap_Window}"
+                                   RenderOptions.BitmapScalingMode="HighQuality" />
+        </Canvas.Background>
+        
+        <TextBlock Text="PHẦN MỀM QUẢN LÍ NHÀ SÁCH" FontWeight="Bold" FontSize="30" Foreground="LawnGreen" Canvas.Top="62" Canvas.Left="69"/>
+        <TextBlock Text="Đăng Nhập" FontWeight="Bold" FontSize="25" Foreground="Yellow" Canvas.Left="233" Canvas.Top="135"/>
+        <TextBlock Text="Username" FontWeight="Bold" Foreground="LightCyan" Canvas.Left="118" Canvas.Top="238"/>
+        <TextBox x:Name="usernameTextBox" Padding="5,0,0,0" Canvas.Left="216" Canvas.Top="238" Width="214"/>
+        <TextBlock Text="Password" FontWeight="Bold" Foreground="LightCyan" Canvas.Left="118" Canvas.Top="301"/>
+        <PasswordBox x:Name="dangNhapPasswordPasswordBox" Padding="5,0,0,0" Canvas.Left="216" Canvas.Top="299" Width="214"/>
         <Button Name="dangNhapButton" Width="80" Height="34" Click="DangNhapButton_Click"  Content="Đăng nhập" Canvas.Left="260" Canvas.Top="352"/>
     </Canvas>
 </Window>

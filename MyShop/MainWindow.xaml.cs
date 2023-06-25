@@ -35,6 +35,10 @@ namespace MyShop
         public static readonly DependencyProperty SoLuongDonHangProperty =
        DependencyProperty.Register("SoLuongDonHangMoi", typeof(int), typeof(Window), new PropertyMetadata(null));
 
+        public static readonly DependencyProperty BackgroundImageMainPathProperty =
+        DependencyProperty.Register("BackgroundImageMainPath", typeof(string), typeof(Window), new PropertyMetadata(null));
+
+
         public static readonly DependencyProperty ImagePath1Property =
          DependencyProperty.Register("ImagePath1", typeof(string), typeof(Window), new PropertyMetadata(null));
 
@@ -80,6 +84,12 @@ namespace MyShop
         {
             get { return (int)GetValue(SoLuongDonHangProperty); }
             set { SetValue(SoLuongDonHangProperty, value); }
+        }
+
+        public string BackgroundImageMainPath
+        {
+            get { return (string)GetValue(BackgroundImageMainPathProperty); }
+            set { SetValue(BackgroundImageMainPathProperty, value); }
         }
 
         public string ImagePath1
@@ -157,6 +167,7 @@ namespace MyShop
                 ThayDoiQuyDinh.SoLuongSachNhapToiThieu = 150;
                 ThayDoiQuyDinh.SoLuongSachTonToiDaDeNhapSach = 300;
                 ThayDoiQuyDinh.SoLuongSachTonToiThieuSauKhiBan = 20;
+                BackgroundImageMainPath = "Images/bookstore_background.jpg";
             }
         }
 

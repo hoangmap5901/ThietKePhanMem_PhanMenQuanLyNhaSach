@@ -23,6 +23,15 @@ namespace MyShop
     {
         public string _usernameLoginWelcome = "";
 
+        public static readonly DependencyProperty BackgroundImageDangNhapPathProperty =
+        DependencyProperty.Register("BackgroundImageDangNhapPath", typeof(string), typeof(Window), new PropertyMetadata(null));
+
+        public string BackgroundImageDangNhapPath
+        {
+            get { return (string)GetValue(BackgroundImageDangNhapPathProperty); }
+            set { SetValue(BackgroundImageDangNhapPathProperty, value); }
+        }
+
         public DangNhapWindow()
         {
             InitializeComponent();
@@ -30,6 +39,8 @@ namespace MyShop
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            BackgroundImageDangNhapPath = "Images/bookstore_background.jpg";
+
             var curDir = AppDomain.CurrentDomain.BaseDirectory;
             var importExcelDir = Path.GetFullPath(Path.Combine(curDir, @"..\..\..\..\"));
             string importExcelFile = $"{importExcelDir}MyShopDataImportDataBase.xlsx";

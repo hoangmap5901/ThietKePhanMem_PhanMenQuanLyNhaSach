@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\bookstore_background.jpg" />
     <None Remove="Images\KhachHang\avatar_icon.jpg" />
     <None Remove="Images\KhachHang\delete_icon.png" />
     <None Remove="Images\KhachHang\edit_icon.png" />
@@ -26,6 +27,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Images\bookstore_background.jpg" />
     <Resource Include="Images\KhachHang\avatar_icon.jpg" />
     <Resource Include="Images\KhachHang\delete_icon.png" />
     <Resource Include="Images\KhachHang\edit_icon.png" />

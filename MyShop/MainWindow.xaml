@@ -11,9 +11,14 @@
         <local:RelativeToAbsoluteConverter x:Key="absolute"/>
     </Window.Resources>
     <Canvas>
-        <StackPanel Orientation="Horizontal" Canvas.Left="400" Canvas.Top="37">
-            <TextBlock Text="Xin Chào " FontWeight="Bold" FontSize="25"/>
-            <TextBlock d:Text="username" Text="{Binding UserNameLoginWelcome, ElementName=Dashboard_Window}" Foreground="Green" FontWeight="Bold" FontSize="25"/>
+        <Canvas.Background>
+            <ImageBrush ImageSource="{Binding Path=BackgroundImageMainPath, ElementName=Dashboard_Window}"
+                                   RenderOptions.BitmapScalingMode="HighQuality" />
+        </Canvas.Background>
+
+        <StackPanel Orientation="Horizontal" Canvas.Left="400" Canvas.Top="57">
+            <TextBlock Text="Xin Chào " FontWeight="Bold" FontSize="25" Foreground="DarkOliveGreen"/>
+            <TextBlock d:Text="username" Text="{Binding UserNameLoginWelcome, ElementName=Dashboard_Window}" Foreground="Blue" FontWeight="Bold" FontSize="25"/>
         </StackPanel>
         <Button x:Name="importExcelButton" Width="144" Height="98" Content="IMPORT TỪ EXCEL"
                 Click="ImportExcelButton_Click" Canvas.Left="69" Canvas.Top="499" Background="Red" HorizontalAlignment="Center" VerticalAlignment="Top"/>
@@ -32,21 +37,21 @@
             Click="DashboardButton_Click" Canvas.Left="10" Canvas.Top="10"/>
 
         <Button x:Name="thayDoiQuyDinhButton" Width="163" Height="40" Content="Thay đổi quy định"
-            Click="ThayDoiQuyDinhButton_Click" Canvas.Left="813" Canvas.Top="10" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            Click="ThayDoiQuyDinhButton_Click" Canvas.Left="825" Canvas.Top="10" HorizontalAlignment="Left" VerticalAlignment="Center"/>
 
-        <TextBlock x:Name="tongSachTextBox1" d:Text="1" Visibility="Hidden" Text="{Binding Path=TongSach, ElementName=Dashboard_Window}" FontWeight="Bold" FontSize="30" Foreground="SaddleBrown" Width="200" Canvas.Left="69" Canvas.Top="85" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-        <TextBlock x:Name="tongSachTextBox2" Visibility="Hidden" Text="Tựa Sách" Width="200" FontSize="20" Canvas.Left="55" Canvas.Top="166" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <TextBlock x:Name="tongSachTextBox1" d:Text="1" Visibility="Hidden" Text="{Binding Path=TongSach, ElementName=Dashboard_Window}" FontWeight="Bold" FontSize="30" Foreground="LightBlue" Width="200" Canvas.Left="69" Canvas.Top="85" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <TextBlock x:Name="tongSachTextBox2" Foreground="White" Visibility="Hidden" Text="Tựa Sách" Width="200" FontSize="20" Canvas.Left="55" Canvas.Top="166" HorizontalAlignment="Center" VerticalAlignment="Top"/>
 
-        <TextBlock x:Name="donHangMoiTextBox1" d:Text="2" Visibility="Hidden" Text="{Binding Path=SoLuongDonHangMoi, ElementName=Dashboard_Window}" FontWeight="Bold" FontSize="30" Foreground="DarkCyan" Width="200" Canvas.Left="371" Canvas.Top="85" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-        <TextBlock x:Name="donHangMoiTextBox2" Visibility="Hidden" Text="Đơn Hàng Mới Trong Tháng Này" Width="341" FontSize="20" Canvas.Left="256" Canvas.Top="167" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <TextBlock x:Name="donHangMoiTextBox1" d:Text="2" Visibility="Hidden" Text="{Binding Path=SoLuongDonHangMoi, ElementName=Dashboard_Window}" FontWeight="Bold" FontSize="30" Foreground="BurlyWood" Width="200" Canvas.Left="371" Canvas.Top="85" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <TextBlock x:Name="donHangMoiTextBox2" Foreground="White" Visibility="Hidden" Text="Đơn Hàng Mới Trong Tháng Này" Width="341" FontSize="20" Canvas.Left="256" Canvas.Top="167" HorizontalAlignment="Center" VerticalAlignment="Top"/>
 
-        <TextBlock x:Name="topNamSachSapHetHangextBox" Visibility="Hidden" Text="Top 5 Sách Sắp Hết Hàng" Width="365" FontSize="30" FontWeight="Bold" Foreground="Crimson"  Canvas.Left="601" Canvas.Top="85" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <TextBlock x:Name="topNamSachSapHetHangextBox" Visibility="Hidden" Text="Top 5 Sách Sắp Hết Hàng" Width="365" FontSize="30" FontWeight="Bold" Foreground="LightCyan"  Canvas.Left="620" Canvas.Top="85" HorizontalAlignment="Center" VerticalAlignment="Top"/>
 
-        <TextBlock x:Name="soThuTu1TextBox" d:Text="1." Visibility="Hidden" Text="1." FontWeight="Bold" Width="341" FontSize="20" Canvas.Left="571" Canvas.Top="167" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-        <TextBlock x:Name="soThuTu2TextBox" d:Text="2." Visibility="Hidden" Text="2." FontWeight="Bold" Width="341" FontSize="20" Canvas.Left="571" Canvas.Top="235" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-        <TextBlock x:Name="soThuTu3TextBox" d:Text="3." Visibility="Hidden" Text="3." FontWeight="Bold" Width="341" FontSize="20" Canvas.Left="571" Canvas.Top="309" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-        <TextBlock x:Name="soThuTu4TextBox" d:Text="4." Visibility="Hidden" Text="4." FontWeight="Bold" Width="341" FontSize="20" Canvas.Left="571" Canvas.Top="374" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-        <TextBlock x:Name="soThuTu5TextBox" d:Text="5." Visibility="Hidden" Text="5." FontWeight="Bold" Width="341" FontSize="20" Canvas.Left="570" Canvas.Top="459" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <TextBlock x:Name="soThuTu1TextBox" d:Text="1." Foreground="White" Visibility="Hidden" Text="1." FontWeight="Bold" Width="341" FontSize="20" Canvas.Left="700" Canvas.Top="167" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <TextBlock x:Name="soThuTu2TextBox" d:Text="2." Foreground="White" Visibility="Hidden" Text="2." FontWeight="Bold" Width="341" FontSize="20" Canvas.Left="700" Canvas.Top="235" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <TextBlock x:Name="soThuTu3TextBox" d:Text="3." Foreground="White" Visibility="Hidden" Text="3." FontWeight="Bold" Width="341" FontSize="20" Canvas.Left="700" Canvas.Top="309" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <TextBlock x:Name="soThuTu4TextBox" d:Text="4." Foreground="White" Visibility="Hidden" Text="4." FontWeight="Bold" Width="341" FontSize="20" Canvas.Left="700" Canvas.Top="374" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <TextBlock x:Name="soThuTu5TextBox" d:Text="5." Foreground="White" Visibility="Hidden" Text="5." FontWeight="Bold" Width="341" FontSize="20" Canvas.Left="700" Canvas.Top="430" HorizontalAlignment="Center" VerticalAlignment="Top"/>
 
         <Image x:Name="imagePath1Box" 
                Visibility="Hidden"
@@ -83,13 +88,13 @@
         <TextBlock x:Name="soLuong2TextBox" d:Text="2" Visibility="Hidden" Text="{Binding Path=SoLuong2, ElementName=Dashboard_Window}" FontWeight="Bold" Foreground="LimeGreen" FontSize="15" Width="200" Canvas.Left="882" Canvas.Top="235" HorizontalAlignment="Center" VerticalAlignment="Top"/>
         <TextBlock x:Name="soLuong3TextBox" d:Text="3" Visibility="Hidden" Text="{Binding Path=SoLuong3, ElementName=Dashboard_Window}" FontWeight="Bold" Foreground="LimeGreen" FontSize="15" Width="200" Canvas.Left="882" Canvas.Top="305" HorizontalAlignment="Center" VerticalAlignment="Top"/>
         <TextBlock x:Name="soLuong4TextBox" d:Text="4" Visibility="Hidden" Text="{Binding Path=SoLuong4, ElementName=Dashboard_Window}" FontWeight="Bold" Foreground="LimeGreen" FontSize="15" Width="200" Canvas.Left="882" Canvas.Top="375" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-        <TextBlock x:Name="soLuong5TextBox" d:Text="5" Visibility="Hidden" Text="{Binding Path=SoLuong5, ElementName=Dashboard_Window}" FontWeight="Bold" Foreground="LimeGreen" FontSize="15" Width="200" Canvas.Left="882" Canvas.Top="466" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <TextBlock x:Name="soLuong5TextBox" d:Text="5" Visibility="Hidden" Text="{Binding Path=SoLuong5, ElementName=Dashboard_Window}" FontWeight="Bold" Foreground="LimeGreen" FontSize="15" Width="200" Canvas.Left="882" Canvas.Top="436" HorizontalAlignment="Center" VerticalAlignment="Top"/>
 
-        <TextBlock x:Name="cuon1TextBox" d:Text="Cuốn" Visibility="Hidden" Text="Cuốn"  Width="341" FontSize="15" Canvas.Left="919" Canvas.Top="166" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-        <TextBlock x:Name="cuon2TextBox" d:Text="Cuốn" Visibility="Hidden" Text="Cuốn"  Width="341" FontSize="15" Canvas.Left="919" Canvas.Top="466" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-        <TextBlock x:Name="cuon3TextBox" d:Text="Cuốn" Visibility="Hidden" Text="Cuốn"  Width="341" FontSize="15" Canvas.Left="919" Canvas.Top="377" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-        <TextBlock x:Name="cuon4TextBox" d:Text="Cuốn" Visibility="Hidden" Text="Cuốn"  Width="341" FontSize="15" Canvas.Left="914" Canvas.Top="305" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-        <TextBlock x:Name="cuon5TextBox" d:Text="Cuốn" Visibility="Hidden" Text="Cuốn"  Width="341" FontSize="15" Canvas.Left="919" Canvas.Top="235" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <TextBlock x:Name="cuon1TextBox" d:Text="Cuốn" Foreground="White" Visibility="Hidden" Text="Cuốn"  Width="341" FontSize="15" Canvas.Left="919" Canvas.Top="166" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <TextBlock x:Name="cuon2TextBox" d:Text="Cuốn" Foreground="White" Visibility="Hidden" Text="Cuốn"  Width="341" FontSize="15" Canvas.Left="919" Canvas.Top="435" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <TextBlock x:Name="cuon3TextBox" d:Text="Cuốn" Foreground="White" Visibility="Hidden" Text="Cuốn"  Width="341" FontSize="15" Canvas.Left="919" Canvas.Top="377" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <TextBlock x:Name="cuon4TextBox" d:Text="Cuốn" Foreground="White" Visibility="Hidden" Text="Cuốn"  Width="341" FontSize="15" Canvas.Left="914" Canvas.Top="307" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <TextBlock x:Name="cuon5TextBox" d:Text="Cuốn" Foreground="White" Visibility="Hidden" Text="Cuốn"  Width="341" FontSize="15" Canvas.Left="919" Canvas.Top="235" HorizontalAlignment="Center" VerticalAlignment="Top"/>
 
 
 
